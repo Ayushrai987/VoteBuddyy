@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://votebuddy.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://votebuddy.in/elections</loc><priority>0.9</priority></url>
+  <url><loc>https://votebuddy.in/states</loc><priority>0.8</priority></url>
+  <url><loc>https://votebuddy.in/booth-finder</loc><priority>0.8</priority></url>
+  <url><loc>https://votebuddy.in/voter</loc><priority>0.8</priority></url>
+  <url><loc>https://votebuddy.in/eci-rules</loc><priority>0.7</priority></url>
+  <url><loc>https://votebuddy.in/results</loc><priority>0.9</priority></url>
+  <url><loc>https://votebuddy.in/ai-assistant</loc><priority>0.9</priority></url>
+</urlset>

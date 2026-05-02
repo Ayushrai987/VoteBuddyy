@@ -1,0 +1,21 @@
+{
+  "name": "VoteBuddy - India Election Platform",
+  "short_name": "VoteBuddy",
+  "description": "Your comprehensive AI-powered India Election Platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#FF6B35",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
