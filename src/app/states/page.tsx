@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { states } from "@/data/states";
+import { allElections, getElectionStatus } from "@/data/elections";
 
 export default function StatesPage() {
   const [search, setSearch] = useState("");
@@ -16,6 +17,21 @@ export default function StatesPage() {
 
   const statesList = filtered.filter((s) => s.type === "State");
   const utsList = filtered.filter((s) => s.type === "UT");
+
+  const getStatusDisplay = (stateName: string, currentStatus: string | undefined) => {
+    const election = allElections.find(e => e.name.includes(stateName) || (e.phases.some(p => p.states.includes(stateName))));
+    if (election && election.electionDate) {
+      return getElectionStatus(election.electionDate);
+    }
+    
+    // Fallback to static status
+    switch (currentStatus) {
+      case "upcoming": return { label: "Upcoming", color: "orange" };
+      case "live": return { label: "Live", color: "orange", pulse: true };
+      case "concluded": return { label: "Concluded", color: "gray" };
+      default: return { label: "UT", color: "gray" };
+    }
+  };
 
   return (
     <div className="page-enter mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
@@ -96,14 +112,27 @@ export default function StatesPage() {
                   <h3 className="text-base font-bold text-[var(--text-primary)] group-hover:text-saffron-500 transition-colors">
                     {state.name}
                   </h3>
-                  <span className={`pill-badge text-[0.6rem] ${
-                    state.electionStatus === "upcoming" ? "pill-badge-accent" :
-                    state.electionStatus === "active" ? "pill-badge-accent" :
-                    "pill-badge-green"
-                  }`}>
-                    {state.electionStatus === "upcoming" ? "Upcoming" : 
-                     state.electionStatus === "active" ? "Active" : "Concluded"}
-                  </span>
+                  <div className="flex flex-col items-end gap-1">
+                    {(() => {
+                      const display = getStatusDisplay(state.name, state.electionStatus);
+                      const election = allElections.find(e => e.name.includes(state.name));
+                      return (
+                        <>
+                          <span className={`pill-badge text-[0.6rem] flex items-center gap-1 ${
+                            display.color === "orange" ? "pill-badge-accent" : "pill-badge-green"
+                          }`}>
+                            {display.pulse && <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />}
+                            {display.label}
+                          </span>
+                          {election && !election.isAnnounced && (
+                            <span className="text-[0.55rem] text-orange-500 font-bold uppercase tracking-tighter">
+                              Schedule Not Announced
+                            </span>
+                          )}
+                        </>
+                      );
+                    })()}
+                  </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>

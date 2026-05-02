@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { states } from "@/data/states";
-import { quickStats, ls2024Results } from "@/data/elections";
+import { quickStats, ls2024Results, getNextElection } from "@/data/elections";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 // ============================================================
@@ -46,18 +46,20 @@ function StatCounter({ target, suffix = "" }: { target: number; suffix?: string 
 // ============================================================
 // Countdown Timer
 // ============================================================
-// Next major election target date
-const ELECTION_TARGET = new Date("2025-11-01T00:00:00+05:30").getTime();
-
-function CountdownTimer() {
+function CountdownTimer({ targetDate }: { targetDate: string }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const { language } = useLanguage();
 
   useEffect(() => {
+    const target = new Date(targetDate).getTime();
     const interval = setInterval(() => {
       const now = new Date();
-      const diff = ELECTION_TARGET - now.getTime();
-      if (diff <= 0) return;
+      const diff = target - now.getTime();
+      if (diff <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        clearInterval(interval);
+        return;
+      }
       setTimeLeft({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -66,7 +68,7 @@ function CountdownTimer() {
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [targetDate]);
 
   const units = [
     { label: language === 'en' ? "Days" : "दिन", value: timeLeft.days },
@@ -102,18 +104,18 @@ function CountdownTimer() {
 function NewsTicker() {
   const { language } = useLanguage();
   const announcements = language === 'en' ? [
-    "Bihar Assembly Elections 2025 - Schedule to be announced soon",
-    "Delhi MCD By-Elections - Results declared",
-    "Voter Registration for Jan 1, 2026 qualifying date now open",
-    "ECI launches updated Voter Helpline App v3.0",
-    "Model Code of Conduct applies immediately upon election announcement",
+    "West Bengal Assembly Election 2026 - Preparation in full swing",
+    "Tamil Nadu 2026 Election - Voter list updation drive starts",
+    "Kerala Assembly Elections 2026 - Schedule Not Announced",
+    "Assam 2026 - Delimitation updates for new constituencies",
+    "Puducherry 2026 - Security measures review completed",
     "Use Booth Finder to locate your nearest polling station",
   ] : [
-    "बिहार विधानसभा चुनाव 2025 - कार्यक्रम की घोषणा जल्द की जाएगी",
-    "दिल्ली एमसीडी उपचुनाव - परिणाम घोषित",
-    "1 जनवरी, 2026 की योग्यता तिथि के लिए मतदाता पंजीकरण अब खुला है",
-    "ईसीआई ने अपडेटेड वोटर हेल्पलाइन ऐप v3.0 लॉन्च किया",
-    "चुनाव की घोषणा के तुरंत बाद आदर्श आचार संहिता लागू हो जाती है",
+    "पश्चिम बंगाल विधानसभा चुनाव 2026 - तैयारियां जोरों पर",
+    "तमिलनाडु 2026 चुनाव - मतदाता सूची अद्यतन अभियान शुरू",
+    "केरल विधानसभा चुनाव 2026 - कार्यक्रम की घोषणा नहीं की गई",
+    "असम 2026 - नए निर्वाचन क्षेत्रों के लिए परिसीमन अपडेट",
+    "पुडुचेरी 2026 - सुरक्षा उपायों की समीक्षा पूरी",
     "अपने नजदीकी मतदान केंद्र का पता लगाने के लिए बूथ फाइंडर का उपयोग करें",
   ];
 
@@ -181,6 +183,8 @@ export default function HomePage() {
   const { t, language } = useLanguage();
   const totalStates = states.filter((s) => s.type === "State").length;
   const totalUTs = states.filter((s) => s.type === "UT").length;
+  
+  const nextElection = getNextElection();
 
   const ctas = [
     { icon: "", title: t('nav.voterServices'), desc: language === 'en' ? "Register to vote, correct details, check status, download voter ID, and more." : "वोट देने के लिए पंजीकरण करें, विवरण सुधारें, स्थिति जांचें, मतदाता पहचान पत्र डाउनलोड करें, और बहुत कुछ।", href: "/voter", color: "#0EA5E9" },
@@ -236,10 +240,31 @@ export default function HomePage() {
 
             {/* Countdown */}
             <div className="glass-card inline-flex flex-col items-center gap-3 px-8 py-5">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                {t('home.nextElection')} - {t('home.bihar2025')}
+              <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-2">
+                {nextElection ? (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-orange-500" />
+                    {nextElection.name}
+                    {!nextElection.isAnnounced && (
+                      <span className="ml-2 px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-500 text-[0.6rem]">
+                        {language === 'en' ? 'Schedule Not Announced' : 'कार्यक्रम घोषित नहीं'}
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-[var(--text-muted)]" />
+                    {language === 'en' ? 'Elections 2026' : 'चुनाव 2026'}
+                  </>
+                )}
               </span>
-              <CountdownTimer />
+              {nextElection?.electionDate ? (
+                <CountdownTimer targetDate={nextElection.electionDate} />
+              ) : (
+                <div className="text-xl font-bold gradient-text">
+                  {language === 'en' ? 'Coming Soon' : 'जल्द आ रहा है'}
+                </div>
+              )}
             </div>
           </div>
         </div>

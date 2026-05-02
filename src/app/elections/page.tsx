@@ -1,6 +1,9 @@
+// ============================================================
+// VoteBuddy - Elections Page
+// ============================================================
 "use client";
 import { useState } from "react";
-import { lokSabha2024 } from "@/data/elections";
+import { lokSabha2024, upcomingElections2026, getElectionStatus } from "@/data/elections";
 import { electionProcess } from "@/data/eci-rules";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
@@ -19,7 +22,7 @@ function PhaseStepper({ phases }: { phases: typeof lokSabha2024.phases }) {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
               activePhase === i
                 ? "bg-gradient-to-r from-saffron-500 to-saffron-400 text-white shadow-lg shadow-saffron-500/25"
-                : "bg-[var(--bg-glass)] text-[var(--text-secondary)] border border-[var(--border-color)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)]"
+                : "bg-[var(--bg-glass)] text-[var(--text-secondary)] border border-[var(--border-color)] hover:border-saffron-500/30 hover:text-[var(--text-primary)]"
             }`}
           >
             {t('elections.phase')} {p.phase}
@@ -200,30 +203,60 @@ export default function ElectionsPage() {
       )}
 
       {activeTab === "Vidhan Sabha" && (
-        <div className="glass-card p-6 sm:p-8 text-center animate-fade-up">
-          <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">{t('elections.vidhanSabha')}</h2>
-          <p className="text-[var(--text-secondary)] max-w-md mx-auto mb-6">
-            {language === 'en' ? 'Bihar 2025' : 'बिहार 2025'} {t('elections.nextMajor')}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
-            {[
-              { state: "Bihar", year: "2025", seats: 243, status: t('elections.upcoming') },
-              { state: "Delhi", year: "2025", seats: 70, status: t('elections.completed') },
-              { state: "Maharashtra", year: "2024", seats: 288, status: t('elections.completed') },
-              { state: "Haryana", year: "2024", seats: 90, status: t('elections.completed') },
-              { state: "Jharkhand", year: "2024", seats: 81, status: t('elections.completed') },
-              { state: "J&K", year: "2024", seats: 90, status: t('elections.completed') },
-            ].map((e) => (
-              <div key={e.state} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)] hover:border-saffron-500/30 transition-all">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-[var(--text-primary)]">{e.state}</span>
-                  <span className={`pill-badge text-[0.6rem] ${e.status === t('elections.upcoming') ? "pill-badge-accent" : "pill-badge-green"}`}>
-                    {e.status}
-                  </span>
+        <div className="animate-fade-up">
+          <div className="glass-card p-6 sm:p-8 mb-8">
+            <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">{t('elections.vidhanSabha')}</h2>
+            <p className="text-[var(--text-secondary)] max-w-md mb-6">
+              {language === 'en' ? 'Tracking state elections for the 2026 cycle.' : '2026 चक्र के लिए राज्य चुनावों पर नज़र रखना।'}
+            </p>
+            
+            <h3 className="section-heading mb-4">{t('elections.upcoming')}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left mb-10">
+              {upcomingElections2026.map((e) => {
+                const status = getElectionStatus(e.electionDate);
+                return (
+                  <div key={e.id} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)] hover:border-saffron-500/30 transition-all">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-bold text-[var(--text-primary)]">{e.name.split(' Assembly')[0]}</span>
+                      <div className="flex flex-col items-end gap-1">
+                        <span className={`pill-badge text-[0.6rem] flex items-center gap-1 ${status.color === 'orange' ? "pill-badge-accent" : "pill-badge-green"}`}>
+                          {status.pulse && <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />}
+                          {status.label}
+                        </span>
+                        {!e.isAnnounced && (
+                          <span className="text-[0.55rem] text-orange-500 font-bold uppercase tracking-tighter">
+                            Schedule Not Announced
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-sm text-[var(--text-secondary)]">{e.totalSeats} {t('elections.seats')} - {e.year}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <h3 className="section-heading mb-4">{t('elections.completed')} (2024-2025)</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
+              {[
+                { state: "Bihar", year: "2025", seats: 243 },
+                { state: "Delhi", year: "2025", seats: 70 },
+                { state: "Maharashtra", year: "2024", seats: 288 },
+                { state: "Haryana", year: "2024", seats: 90 },
+                { state: "Jharkhand", year: "2024", seats: 81 },
+                { state: "J&K", year: "2024", seats: 90 },
+              ].map((e) => (
+                <div key={e.state} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)] hover:border-saffron-500/30 transition-all opacity-70">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-[var(--text-primary)]">{e.state}</span>
+                    <span className="pill-badge pill-badge-green text-[0.6rem]">
+                      {t('elections.completed')}
+                    </span>
+                  </div>
+                  <p className="text-sm text-[var(--text-secondary)]">{e.seats} {t('elections.seats')} - {e.year}</p>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">{e.seats} {t('elections.seats')} - {e.year}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       )}

@@ -48,7 +48,6 @@ export const translations = {
       vsSeats: "Vidhan Sabha Seats",
       others: "Others",
       seats: "seats",
-      bihar2025: "Bihar Assembly 2025",
       checkVoterStatus: "Check Voter Status",
       guideTo: "Your Guide to",
       indianElections: "Indian Elections"
@@ -283,7 +282,6 @@ export const translations = {
       vsSeats: "विधानसभा सीटें",
       others: "अन्य",
       seats: "सीटें",
-      bihar2025: "बिहार विधानसभा 2025",
       checkVoterStatus: "वोटर स्टेटस जांचें",
       guideTo: "आपका मार्गदर्शक",
       indianElections: "भारतीय चुनाव"

@@ -10,8 +10,8 @@ export const lokSabha2024: Election = {
   type: "Lok Sabha",
   totalSeats: 543,
   status: "completed",
-  notificationDate: "March 16, 2024",
-  resultDate: "June 4, 2024",
+  electionDate: "2024-06-04",
+  isAnnounced: true,
   phases: [
     { phase: 1, date: "April 19, 2024", states: ["Rajasthan", "Tamil Nadu", "Uttarakhand", "Arunachal Pradesh", "Meghalaya", "Sikkim", "Mizoram", "Nagaland", "Tripura", "Manipur", "Andaman & Nicobar", "Lakshadweep", "Puducherry", "Jammu & Kashmir", "Assam", "Bihar", "Chhattisgarh", "Madhya Pradesh", "Maharashtra", "Uttar Pradesh", "West Bengal"], seats: 102 },
     { phase: 2, date: "April 26, 2024", states: ["Assam", "Bihar", "Chhattisgarh", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Rajasthan", "Tripura", "Uttar Pradesh", "West Bengal", "Jammu & Kashmir"], seats: 89 },
@@ -21,6 +21,95 @@ export const lokSabha2024: Election = {
     { phase: 6, date: "May 25, 2024", states: ["Bihar", "Haryana", "Jharkhand", "Odisha", "Uttar Pradesh", "West Bengal", "Delhi"], seats: 57 },
     { phase: 7, date: "June 1, 2024", states: ["Bihar", "Himachal Pradesh", "Jharkhand", "Odisha", "Punjab", "Uttar Pradesh", "West Bengal", "Chandigarh"], seats: 57 },
   ],
+};
+
+// 2026 Upcoming Elections
+export const upcomingElections2026: Election[] = [
+  {
+    id: "wb-2026",
+    name: "West Bengal Assembly Election 2026",
+    year: 2026,
+    type: "Vidhan Sabha",
+    totalSeats: 294,
+    status: "upcoming",
+    electionDate: "2026-05-15", // Estimated for April-May
+    isAnnounced: false,
+    phases: []
+  },
+  {
+    id: "tn-2026",
+    name: "Tamil Nadu Assembly Election 2026",
+    year: 2026,
+    type: "Vidhan Sabha",
+    totalSeats: 234,
+    status: "upcoming",
+    electionDate: "2026-05-10", 
+    isAnnounced: false,
+    phases: []
+  },
+  {
+    id: "kl-2026",
+    name: "Kerala Assembly Election 2026",
+    year: 2026,
+    type: "Vidhan Sabha",
+    totalSeats: 140,
+    status: "upcoming",
+    electionDate: "2026-05-08",
+    isAnnounced: false,
+    phases: []
+  },
+  {
+    id: "as-2026",
+    name: "Assam Assembly Election 2026",
+    year: 2026,
+    type: "Vidhan Sabha",
+    totalSeats: 126,
+    status: "upcoming",
+    electionDate: "2026-04-25",
+    isAnnounced: false,
+    phases: []
+  },
+  {
+    id: "py-2026",
+    name: "Puducherry Assembly Election 2026",
+    year: 2026,
+    type: "Vidhan Sabha",
+    totalSeats: 30,
+    status: "upcoming",
+    electionDate: "2026-05-12",
+    isAnnounced: false,
+    phases: []
+  }
+];
+
+export const allElections: Election[] = [
+  lokSabha2024,
+  ...upcomingElections2026
+];
+
+// Helper Functions
+export const getElectionStatus = (electionDateStr: string | undefined) => {
+  if (!electionDateStr) return { label: "Upcoming", color: "orange", status: "upcoming" as const };
+  
+  const now = new Date();
+  const electionDate = new Date(electionDateStr);
+  const diffTime = electionDate.getTime() - now.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 0) {
+    return { label: "Concluded", color: "gray", status: "completed" as const };
+  } else if (diffDays <= 7) {
+    return { label: "Live", color: "orange", status: "live" as const, pulse: true };
+  } else {
+    return { label: "Upcoming", color: "orange", status: "upcoming" as const };
+  }
+};
+
+export const getNextElection = (): Election | undefined => {
+  const now = new Date();
+  return allElections
+    .filter(e => e.electionDate && new Date(e.electionDate) > now)
+    .sort((a, b) => new Date(a.electionDate!).getTime() - new Date(b.electionDate!).getTime())[0];
 };
 
 export const upDeepDive = {

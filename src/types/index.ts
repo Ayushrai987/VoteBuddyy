@@ -17,7 +17,7 @@ export interface State {
   cm: string;
   governor?: string;
   area?: string;
-  electionStatus?: "active" | "upcoming" | "concluded" | "none";
+  electionStatus?: "active" | "upcoming" | "concluded" | "live" | "none";
 }
 
 export interface Constituency {
@@ -46,7 +46,9 @@ export interface Election {
   phases: ElectionPhase[];
   notificationDate?: string;
   resultDate?: string;
-  status: "completed" | "ongoing" | "upcoming";
+  status: "completed" | "ongoing" | "upcoming" | "live";
+  electionDate?: string; // ISO format or representative date
+  isAnnounced?: boolean;
 }
 
 export interface Candidate {

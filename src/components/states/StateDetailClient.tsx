@@ -3,6 +3,7 @@
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { State } from "@/types";
 import Link from "next/link";
+import { allElections, getElectionStatus } from "@/data/elections";
 
 type Props = {
   state: State;
@@ -19,6 +20,24 @@ type Props = {
 export default function StateDetailClient({ state, up }: Props) {
   const { t, language } = useLanguage();
   const isUP = state.slug === "uttar-pradesh";
+
+  const getStatusDisplay = () => {
+    const election = allElections.find(e => e.name.includes(state.name));
+    if (election && election.electionDate) {
+      const display = getElectionStatus(election.electionDate);
+      return { ...display, isAnnounced: election.isAnnounced };
+    }
+    
+    // Fallback to static status
+    switch (state.electionStatus) {
+      case "upcoming": return { label: t('states.upcoming'), color: "orange", isAnnounced: true };
+      case "live": return { label: "Live", color: "orange", pulse: true, isAnnounced: true };
+      case "concluded": return { label: t('states.concluded'), color: "gray", isAnnounced: true };
+      default: return { label: state.type, color: "gray", isAnnounced: true };
+    }
+  };
+
+  const status = getStatusDisplay();
 
   const infoGrid = [
     { label: t('states.capital'), value: state.capital, icon: "" },
@@ -53,13 +72,21 @@ export default function StateDetailClient({ state, up }: Props) {
             {state.type === "State" ? (language === 'en' ? "State" : "राज्य") : (language === 'en' ? "Union Territory" : "केंद्र शासित प्रदेश")} - {t('states.capital')}: {state.capital}
           </p>
         </div>
-        <div className="flex gap-2">
-          <span className={`pill-badge ${
-            state.electionStatus === "upcoming" ? "pill-badge-accent" : "pill-badge-green"
-          }`}>
-            {state.electionStatus === "upcoming" ? t('states.upcoming') : t('states.concluded')}
-          </span>
-          <span className="pill-badge">{state.type}</span>
+        <div className="flex flex-col items-end gap-1">
+          <div className="flex gap-2">
+            <span className={`pill-badge flex items-center gap-1 ${
+              status.color === "orange" ? "pill-badge-accent" : "pill-badge-green"
+            }`}>
+              {status.pulse && <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />}
+              {status.label}
+            </span>
+            <span className="pill-badge">{state.type}</span>
+          </div>
+          {!status.isAnnounced && (
+            <span className="text-[0.6rem] text-orange-500 font-bold uppercase tracking-wider">
+              {language === 'en' ? 'Schedule Not Announced' : 'कार्यक्रम घोषित नहीं'}
+            </span>
+          )}
         </div>
       </div>
 
