@@ -4,7 +4,8 @@
 import { Candidate } from "@/types";
 
 export const sampleCandidates: Candidate[] = [
-  // Varanas  { id: "c1", name: "Narendra Modi", party: "Bharatiya Janata Party", partyShort: "BJP", constituency: "Varanasi", state: "Uttar Pradesh", gender: "Male", age: 74, education: "MA Political Science", criminalCases: 0, assets: "Rs.3.02 Cr", liabilities: "Rs.0", result: "Won", votes: 612970, margin: 152513, electionYear: 2024 },
+  // Varanasi
+  { id: "c1", name: "Narendra Modi", party: "Bharatiya Janata Party", partyShort: "BJP", constituency: "Varanasi", state: "Uttar Pradesh", gender: "Male", age: 74, education: "MA Political Science", criminalCases: 0, assets: "Rs.3.02 Cr", liabilities: "Rs.0", result: "Won", votes: 612970, margin: 152513, electionYear: 2024 },
   { id: "c2", name: "Ajay Rai", party: "Indian National Congress", partyShort: "INC", constituency: "Varanasi", state: "Uttar Pradesh", gender: "Male", age: 62, education: "Intermediate", criminalCases: 2, assets: "Rs.8.4 Cr", liabilities: "Rs.1.2 Cr", result: "Lost", votes: 460457, margin: -152513, electionYear: 2024 },
   // Amethi
   { id: "c3", name: "Kishori Lal Sharma", party: "Indian National Congress", partyShort: "INC", constituency: "Amethi", state: "Uttar Pradesh", gender: "Male", age: 56, education: "Graduate", criminalCases: 0, assets: "Rs.1.8 Cr", liabilities: "Rs.0", result: "Won", votes: 510019, margin: 167196, electionYear: 2024 },
@@ -25,7 +26,6 @@ export const sampleCandidates: Candidate[] = [
   { id: "c11", name: "Shashi Tharoor", party: "Indian National Congress", partyShort: "INC", constituency: "Thiruvananthapuram", state: "Kerala", gender: "Male", age: 68, education: "PhD", criminalCases: 1, assets: "Rs.34.2 Cr", liabilities: "Rs.1.8 Cr", result: "Lost", votes: 341032, margin: -74711, electionYear: 2024 },
   // Chennai South
   { id: "c12", name: "Thamizhachi Thangapandian", party: "Dravida Munnetra Kazhagam", partyShort: "DMK", constituency: "Chennai South", state: "Tamil Nadu", gender: "Female", age: 56, education: "MBA", criminalCases: 0, assets: "Rs.4.6 Cr", liabilities: "Rs.0.2 Cr", result: "Won", votes: 496820, margin: 218742, electionYear: 2024 },
-es: 496820, margin: 218742, electionYear: 2024 },
 ];
 
 export const partyList = [
