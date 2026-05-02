@@ -11,8 +11,8 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   const candidate = sampleCandidates.find((c) => c.id === params.id);
   if (!candidate) return {};
   return {
-    title: `${candidate.name} — ${candidate.constituency}`,
-    description: `${candidate.name} (${candidate.partyShort}) — ${candidate.constituency}, ${candidate.state}. ${candidate.result} with ${candidate.votes?.toLocaleString()} votes.`,
+    title: `${candidate.name} - ${candidate.constituency}`,
+    description: `${candidate.name} (${candidate.partyShort}) - ${candidate.constituency}, ${candidate.state}. ${candidate.result} with ${candidate.votes?.toLocaleString()} votes.`,
   };
 }
 

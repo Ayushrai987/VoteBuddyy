@@ -23,7 +23,7 @@ const notoHindi = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   manifest: "/manifest.json",
   title: {
-    default: "VoteBuddy — India Election Platform",
+    default: "VoteBuddy - India Election Platform",
     template: "%s | VoteBuddy",
   },
   description:
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://votebuddy.in",
     siteName: "VoteBuddy",
-    title: "VoteBuddy — India Election Platform",
+    title: "VoteBuddy - India Election Platform",
     description:
       "Your comprehensive India Election Platform covering elections, states, booth finder, ECI rules, results & AI assistant.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VoteBuddy — India Election Platform",
+    title: "VoteBuddy - India Election Platform",
     description: "Your comprehensive India Election Platform",
   },
 };

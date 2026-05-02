@@ -10,14 +10,14 @@ import { ChatMessage } from '@/types';
 const INITIAL_MESSAGE_EN: ChatMessage = {
   id: 'init',
   role: 'assistant',
-  content: 'Namaste! 🙏 I am VoteBuddy, your AI Election Assistant. How can I help you today? You can ask me about:\n\n*   Your polling booth location\n*   Voter registration process\n*   Election dates for your state\n*   ECI guidelines and rules\n*   Candidate information',
+  content: 'Namaste! I am VoteBuddy, your AI Election Assistant. How can I help you today? You can ask me about:\n\n*   Your polling booth location\n*   Voter registration process\n*   Election dates for your state\n*   ECI guidelines and rules\n*   Candidate information',
   timestamp: Date.now()
 };
 
 const INITIAL_MESSAGE_HI: ChatMessage = {
   id: 'init-hi',
   role: 'assistant',
-  content: 'नमस्ते! 🙏 मैं वोटबडी हूं, आपका एआई चुनाव सहायक। मैं आज आपकी क्या मदद कर सकता हूं? आप मुझसे इनके बारे में पूछ सकते हैं:\n\n*   आपका मतदान केंद्र (बूथ)\n*   मतदाता पंजीकरण प्रक्रिया\n*   आपके राज्य के लिए चुनाव की तारीखें\n*   ईसीआई के दिशा-निर्देश और नियम\n*   उम्मीदवार की जानकारी',
+  content: 'नमस्ते! मैं वोटबडी हूं, आपका एआई चुनाव सहायक। मैं आज आपकी क्या मदद कर सकता हूं? आप मुझसे इनके बारे में पूछ सकते हैं:\n\n*   आपका मतदान केंद्र (बूथ)\n*   मतदाता पंजीकरण प्रक्रिया\n*   आपके राज्य के लिए चुनाव की तारीखें\n*   ईसीआई के दिशा-निर्देश और नियम\n*   उम्मीदवार की जानकारी',
   timestamp: Date.now()
 };
 

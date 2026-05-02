@@ -38,11 +38,11 @@ export default function CandidateDetailClient({ candidate, partyData, opponent, 
                   {candidate.party}
                 </span>
                 <span className={`pill-badge ${candidate.result === "Won" ? "pill-badge-green" : "pill-badge-accent"}`}>
-                  {candidate.result === "Won" ? `🏆 ${t('candidates.won')}` : `❌ ${t('candidates.lost')}`} — LS {candidate.electionYear}
+                  {candidate.result === "Won" ? t('candidates.won') : t('candidates.lost')} - LS {candidate.electionYear}
                 </span>
               </div>
               <p className="text-sm text-[var(--text-secondary)] mt-2">
-                📍 {candidate.constituency}, {candidate.state}
+                {candidate.constituency}, {candidate.state}
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function CandidateDetailClient({ candidate, partyData, opponent, 
       {/* Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="glass-card p-6">
-          <h2 className="text-base font-bold text-[var(--text-primary)] mb-4">📋 {t('candidates.personalDetails')}</h2>
+          <h2 className="text-base font-bold text-[var(--text-primary)] mb-4">{t('candidates.personalDetails')}</h2>
           <div className="space-y-3">
             {[
               { label: t('candidates.fullName'), value: candidate.name },
@@ -96,11 +96,11 @@ export default function CandidateDetailClient({ candidate, partyData, opponent, 
         </div>
 
         <div className="glass-card p-6">
-          <h2 className="text-base font-bold text-[var(--text-primary)] mb-4">💰 {t('candidates.affidavitSummary')}</h2>
+          <h2 className="text-base font-bold text-[var(--text-primary)] mb-4">{t('candidates.affidavitSummary')}</h2>
           <div className="space-y-3">
             {[
               { label: t('candidates.declaredAssets'), value: candidate.assets || "N/A" },
-              { label: t('candidates.declaredLiabilities'), value: candidate.liabilities || "₹0" },
+              { label: t('candidates.declaredLiabilities'), value: candidate.liabilities || "Rs.0" },
               { label: t('candidates.criminalCases'), value: (candidate.criminalCases || 0).toString(), highlight: (candidate.criminalCases || 0) > 0 },
               { label: t('candidates.education'), value: candidate.education || "N/A" },
               { label: t('candidates.electionYear'), value: candidate.electionYear.toString() },
@@ -119,7 +119,7 @@ export default function CandidateDetailClient({ candidate, partyData, opponent, 
       {/* Opponent comparison */}
       {opponent && (
         <div className="glass-card p-6 mb-8">
-          <h2 className="text-base font-bold text-[var(--text-primary)] mb-4">⚔️ {t('candidates.vsOpponent')} — {candidate.constituency}</h2>
+          <h2 className="text-base font-bold text-[var(--text-primary)] mb-4">{t('candidates.vsOpponent')} - {candidate.constituency}</h2>
           <div className="flex items-center gap-4">
             <div className="flex-1 text-right">
               <p className="font-bold text-[var(--text-primary)]">{candidate.name}</p>
@@ -151,7 +151,7 @@ export default function CandidateDetailClient({ candidate, partyData, opponent, 
       )}
 
       <Link href="/candidates" className="btn-ghost inline-flex items-center gap-2">
-        ← {t('candidates.backToAll')}
+        {t('candidates.backToAll')}
       </Link>
     </div>
   );

@@ -21,17 +21,17 @@ export default function StateDetailClient({ state, up }: Props) {
   const isUP = state.slug === "uttar-pradesh";
 
   const infoGrid = [
-    { label: t('states.capital'), value: state.capital, icon: "🏛️" },
-    { label: t('states.type'), value: state.type === "State" ? (language === 'en' ? "State" : "राज्य") : (language === 'en' ? "Union Territory" : "केंद्र शासित प्रदेश"), icon: "📋" },
-    { label: t('states.lsSeats'), value: state.loksabha.toString(), icon: "🏛️" },
-    { label: t('states.vsSeats'), value: state.vidhansabha ? state.vidhansabha.toString() : "N/A", icon: "🏫" },
-    { label: t('states.districts'), value: state.districts.toString(), icon: "🗺️" },
-    { label: t('states.registeredVoters'), value: state.approxVoters, icon: "👥" },
-    { label: t('states.phases'), value: state.phases.toString(), icon: "📅" },
-    { label: t('states.lastElection'), value: state.lastElection, icon: "📊" },
-    { label: t('states.lastWinner'), value: state.lastWinner, icon: "🏆" },
-    { label: t('states.cm'), value: state.cm, icon: "👤" },
-    ...(state.governor ? [{ label: t('states.governor'), value: state.governor, icon: "🎖️" }] : []),
+    { label: t('states.capital'), value: state.capital, icon: "" },
+    { label: t('states.type'), value: state.type === "State" ? (language === 'en' ? "State" : "राज्य") : (language === 'en' ? "Union Territory" : "केंद्र शासित प्रदेश"), icon: "" },
+    { label: t('states.lsSeats'), value: state.loksabha.toString(), icon: "" },
+    { label: t('states.vsSeats'), value: state.vidhansabha ? state.vidhansabha.toString() : "N/A", icon: "" },
+    { label: t('states.districts'), value: state.districts.toString(), icon: "" },
+    { label: t('states.registeredVoters'), value: state.approxVoters, icon: "" },
+    { label: t('states.phases'), value: state.phases.toString(), icon: "" },
+    { label: t('states.lastElection'), value: state.lastElection, icon: "" },
+    { label: t('states.lastWinner'), value: state.lastWinner, icon: "" },
+    { label: t('states.cm'), value: state.cm, icon: "" },
+    ...(state.governor ? [{ label: t('states.governor'), value: state.governor, icon: "" }] : []),
   ];
 
   return (
@@ -50,14 +50,14 @@ export default function StateDetailClient({ state, up }: Props) {
             {state.name}
           </h1>
           <p className="text-[var(--text-secondary)] mt-1">
-            {state.type === "State" ? (language === 'en' ? "State" : "राज्य") : (language === 'en' ? "Union Territory" : "केंद्र शासित प्रदेश")} • {t('states.capital')}: {state.capital}
+            {state.type === "State" ? (language === 'en' ? "State" : "राज्य") : (language === 'en' ? "Union Territory" : "केंद्र शासित प्रदेश")} - {t('states.capital')}: {state.capital}
           </p>
         </div>
         <div className="flex gap-2">
           <span className={`pill-badge ${
             state.electionStatus === "upcoming" ? "pill-badge-accent" : "pill-badge-green"
           }`}>
-            {state.electionStatus === "upcoming" ? `⏳ ${t('states.upcoming')}` : `✅ ${t('states.concluded')}`}
+            {state.electionStatus === "upcoming" ? t('states.upcoming') : t('states.concluded')}
           </span>
           <span className="pill-badge">{state.type}</span>
         </div>
@@ -68,7 +68,6 @@ export default function StateDetailClient({ state, up }: Props) {
         {infoGrid.map((item) => (
           <div key={item.label} className="glass-card p-4 hover:border-saffron-500/30 transition-all">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-lg">{item.icon}</span>
               <span className="text-[0.65rem] text-[var(--text-muted)] uppercase tracking-wider font-semibold">
                 {item.label}
               </span>
@@ -85,7 +84,7 @@ export default function StateDetailClient({ state, up }: Props) {
           <div className="glass-card p-6 sm:p-8 mb-8">
             <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
               <h2 className="text-xl font-extrabold gradient-text">
-                🏛️ {state.name} — {t('states.deepDive')}
+                {state.name} - {t('states.deepDive')}
               </h2>
               <span className="pill-badge pill-badge-accent">
                 {language === 'en' ? 'Largest State by LS Seats' : 'लोकसभा सीटों के हिसाब से सबसे बड़ा राज्य'}
@@ -113,7 +112,7 @@ export default function StateDetailClient({ state, up }: Props) {
 
             {/* Divisions */}
             <h3 className="text-base font-bold text-[var(--text-primary)] mb-4">
-              📌 {up.totalLS} {t('states.divisions')}
+              {up.totalLS} {t('states.divisions')}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {Object.entries(up.divisions).map(([division, seats]) => (
@@ -132,7 +131,7 @@ export default function StateDetailClient({ state, up }: Props) {
 
             {/* Phase Breakdown */}
             <h3 className="text-base font-bold text-[var(--text-primary)] mb-4">
-              📅 {t('states.phases')} {t('states.phaseBreakdown')}
+              {t('states.phases')} {t('states.phaseBreakdown')}
             </h3>
             <div className="space-y-3">
               {up.phaseBreakdown.map((phase) => (
@@ -145,7 +144,7 @@ export default function StateDetailClient({ state, up }: Props) {
                       <span className="text-sm font-bold text-[var(--text-primary)]">{language === 'en' ? 'Phase' : 'चरण'} {phase.phase}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-xs text-[var(--text-muted)]">📅 {phase.date}</span>
+                      <span className="text-xs text-[var(--text-muted)]">{phase.date}</span>
                       <span className="pill-badge text-[0.6rem]">{phase.seats} {language === 'en' ? 'seats' : 'सीटें'}</span>
                     </div>
                   </div>
@@ -161,7 +160,7 @@ export default function StateDetailClient({ state, up }: Props) {
       {!isUP && (
         <div className="glass-card p-6 sm:p-8">
           <h2 className="text-xl font-extrabold text-[var(--text-primary)] mb-4">
-            📊 {t('states.summary')}
+            {t('states.summary')}
           </h2>
           <div className="info-card mb-4">
             <p className="text-sm text-[var(--text-secondary)]">
@@ -184,7 +183,7 @@ export default function StateDetailClient({ state, up }: Props) {
       {/* Back */}
       <div className="mt-8">
         <Link href="/states" className="btn-ghost inline-flex items-center gap-2">
-          ← {t('states.backToAll')}
+          {t('states.backToAll')}
         </Link>
       </div>
     </div>

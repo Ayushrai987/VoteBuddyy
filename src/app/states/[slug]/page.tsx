@@ -13,7 +13,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const state = states.find((s) => s.slug === params.slug);
   if (!state) return {};
   return {
-    title: `${state.name} — Election Data`,
+    title: `${state.name} - Election Data`,
     description: `Complete election data for ${state.name}: ${state.loksabha} Lok Sabha seats, ${state.vidhansabha} Vidhan Sabha seats, ${state.districts} districts, ${state.approxVoters} voters.`,
   };
 }

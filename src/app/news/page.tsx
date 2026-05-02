@@ -101,7 +101,7 @@ export default function NewsPage() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
-            📰 {t('news.hubTitle')}
+            {t('news.hubTitle')}
           </h1>
           <p className="text-[var(--text-secondary)] max-w-xl">
             {t('news.hubSubtitle')}
@@ -138,7 +138,7 @@ export default function NewsPage() {
                 
                 {item.state && (
                   <span className="text-xs font-medium text-[var(--text-muted)]">
-                    📍 {item.state}
+                    {item.state}
                   </span>
                 )}
 
@@ -182,7 +182,7 @@ export default function NewsPage() {
 
         {filteredNews.length === 0 && (
           <div className="text-center py-16 glass-card rounded-2xl">
-            <span className="text-4xl mb-4 block opacity-50">📰</span>
+            <span className="text-4xl mb-4 block opacity-50"></span>
             <p className="text-[var(--text-secondary)]">{t('news.noNews')}</p>
           </div>
         )}

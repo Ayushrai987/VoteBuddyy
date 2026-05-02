@@ -231,9 +231,9 @@ export default function BoothFinderPage() {
                   
                   {/* Accessibility badges */}
                   <div className="flex flex-wrap gap-1 mt-2">
-                    {booth.accessibility.ramp && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-500/10 text-green-600 border border-green-500/20">♿ {t('booth.accessibility.ramp')}</span>}
-                    {booth.accessibility.drinkingWater && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 border border-blue-500/20">💧 {t('booth.accessibility.water')}</span>}
-                    {booth.accessibility.toilets && <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 border border-purple-500/20">🚻 {t('booth.accessibility.toilet')}</span>}
+                    {booth.accessibility.ramp && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-500/10 text-green-600 border border-green-500/20">{t('booth.accessibility.ramp')}</span>}
+                    {booth.accessibility.drinkingWater && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 border border-blue-500/20">{t('booth.accessibility.water')}</span>}
+                    {booth.accessibility.toilets && <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 border border-purple-500/20">{t('booth.accessibility.toilet')}</span>}
                   </div>
                 </div>
               ))}
@@ -290,7 +290,7 @@ export default function BoothFinderPage() {
                       {selectedBooth.bloName && (
                         <p className="mt-1 border-t pt-1">
                           <strong>{t('booth.blo')}:</strong> {selectedBooth.bloName}<br/>
-                          📞 {selectedBooth.bloPhone}
+                          {selectedBooth.bloPhone}
                         </p>
                       )}
                     </div>

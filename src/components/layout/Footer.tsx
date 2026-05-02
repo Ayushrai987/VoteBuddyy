@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">🗳️</span>
+              <span className="text-xl font-black italic text-saffron-500">VB</span>
               <div>
                 <h3 className="text-lg font-extrabold gradient-text">VoteBuddy</h3>
                 <p className="text-xs text-[var(--text-muted)]">India Election Platform</p>
@@ -58,24 +58,24 @@ export default function Footer() {
               <li>
                 <a href="https://eci.gov.in" target="_blank" rel="noopener noreferrer"
                   className="text-sm text-[var(--text-secondary)] hover:text-saffron-500 transition-colors flex items-center gap-1">
-                  ECI Official Website ↗
+                  ECI Official Website
                 </a>
               </li>
               <li>
                 <a href="https://voters.eci.gov.in" target="_blank" rel="noopener noreferrer"
                   className="text-sm text-[var(--text-secondary)] hover:text-saffron-500 transition-colors flex items-center gap-1">
-                  NVSP Portal ↗
+                  NVSP Portal
                 </a>
               </li>
               <li>
                 <a href="https://results.eci.gov.in" target="_blank" rel="noopener noreferrer"
                   className="text-sm text-[var(--text-secondary)] hover:text-saffron-500 transition-colors flex items-center gap-1">
-                  ECI Results ↗
+                  ECI Results
                 </a>
               </li>
               <li>
                 <span className="text-sm text-[var(--text-secondary)] flex items-center gap-2">
-                  📞 Voter Helpline: <strong className="text-saffron-500">1950</strong>
+                  Voter Helpline: <strong className="text-saffron-500">1950</strong>
                 </span>
               </li>
             </ul>
@@ -89,7 +89,7 @@ export default function Footer() {
             Always verify with official sources.
           </p>
           <p className="text-xs text-[var(--text-muted)]">
-            Made with 🧡 for Indian Democracy
+            Made for Indian Democracy
           </p>
         </div>
       </div>

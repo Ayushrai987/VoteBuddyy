@@ -35,7 +35,7 @@ function PhaseStepper({ phases }: { phases: typeof lokSabha2024.phases }) {
               {t('elections.phase')} {phases[activePhase].phase}
             </h3>
             <p className="text-saffron-500 font-semibold text-sm mt-1">
-              📅 {phases[activePhase].date}
+              {phases[activePhase].date}
             </p>
           </div>
           <div className="pill-badge pill-badge-accent text-base px-5 py-2">
@@ -105,7 +105,7 @@ export default function ElectionsPage() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
-          📊 {t('elections.hubTitle')}
+          {t('elections.hubTitle')}
         </h1>
         <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
           {t('elections.hubSubtitle')}
@@ -140,10 +140,10 @@ export default function ElectionsPage() {
                   {lokSabha2024.name}
                 </h2>
                 <p className="text-sm text-[var(--text-secondary)] mt-1">
-                  {lokSabha2024.totalSeats} {t('elections.seats')} • {lokSabha2024.phases.length} {t('states.phases')}
+                  {lokSabha2024.totalSeats} {t('elections.seats')} - {lokSabha2024.phases.length} {t('states.phases')}
                 </p>
               </div>
-              <span className="pill-badge pill-badge-green">✅ {t('elections.completed')}</span>
+              <span className="pill-badge pill-badge-green">{t('elections.completed')}</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
@@ -171,7 +171,7 @@ export default function ElectionsPage() {
           {/* Election Process */}
           <div className="glass-card p-6 sm:p-8">
             <h2 className="text-xl font-extrabold text-[var(--text-primary)] mb-6">
-              📋 {t('elections.processTitle')}
+              {t('elections.processTitle')}
             </h2>
             <div className="space-y-4">
               {electionProcess.map((step) => (
@@ -180,7 +180,6 @@ export default function ElectionsPage() {
                   className="flex items-start gap-4 p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)] hover:border-saffron-500/30 transition-all"
                 >
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-saffron-500/20 to-saffron-400/10 border border-saffron-500/20 flex items-center justify-center text-lg flex-shrink-0">
-                    {step.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 flex-wrap">
@@ -188,7 +187,7 @@ export default function ElectionsPage() {
                         {t('elections.step')} {step.step}: {language === 'en' ? step.title : step.titleHi}
                       </span>
                       {step.duration && (
-                        <span className="pill-badge text-[0.6rem]">⏱ {step.duration}</span>
+                        <span className="pill-badge text-[0.6rem]">{step.duration}</span>
                       )}
                     </div>
                     <p className="text-sm text-[var(--text-secondary)] mt-1 leading-relaxed">{step.desc}</p>
@@ -202,7 +201,6 @@ export default function ElectionsPage() {
 
       {activeTab === "Vidhan Sabha" && (
         <div className="glass-card p-6 sm:p-8 text-center animate-fade-up">
-          <span className="text-5xl mb-4 block">🏛️</span>
           <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">{t('elections.vidhanSabha')}</h2>
           <p className="text-[var(--text-secondary)] max-w-md mx-auto mb-6">
             {language === 'en' ? 'Bihar 2025' : 'बिहार 2025'} {t('elections.nextMajor')}
@@ -223,7 +221,7 @@ export default function ElectionsPage() {
                     {e.status}
                   </span>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">{e.seats} {t('elections.seats')} • {e.year}</p>
+                <p className="text-sm text-[var(--text-secondary)]">{e.seats} {t('elections.seats')} - {e.year}</p>
               </div>
             ))}
           </div>
@@ -232,7 +230,6 @@ export default function ElectionsPage() {
 
       {(activeTab === "By-Elections" || activeTab === "Local Body") && (
         <div className="glass-card p-8 text-center animate-fade-up">
-          <span className="text-5xl mb-4 block">{activeTab === "By-Elections" ? "🗳️" : "🏘️"}</span>
           <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">{t(`elections.${activeTab === "By-Elections" ? 'byElections' : 'localBody'}`)}</h2>
           <p className="text-[var(--text-secondary)] max-w-md mx-auto">
             {activeTab === "By-Elections"

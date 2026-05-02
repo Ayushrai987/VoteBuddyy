@@ -1,5 +1,5 @@
 // ============================================================
-// VoteBuddy — All India States & UTs Data
+// VoteBuddy - All India States & UTs Data
 // Migrated from data.js + expanded with additional fields
 // ============================================================
 import { State } from "@/types";

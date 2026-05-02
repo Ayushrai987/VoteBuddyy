@@ -7,14 +7,14 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const navLinks = [
-  { href: "/", key: "home", icon: "🏠" },
-  { href: "/elections", key: "elections", icon: "📊" },
-  { href: "/states", key: "states", icon: "🗺️" },
-  { href: "/booth-finder", key: "boothFinder", icon: "📍" },
-  { href: "/voter", key: "voterServices", icon: "📝" },
-  { href: "/eci-rules", key: "eciRules", icon: "⚖️" },
-  { href: "/results", key: "results", icon: "📈" },
-  { href: "/ai-assistant", key: "aiChat", icon: "🤖" },
+  { href: "/", key: "home", icon: "" },
+  { href: "/elections", key: "elections", icon: "" },
+  { href: "/states", key: "states", icon: "" },
+  { href: "/booth-finder", key: "boothFinder", icon: "" },
+  { href: "/voter", key: "voterServices", icon: "" },
+  { href: "/eci-rules", key: "eciRules", icon: "" },
+  { href: "/results", key: "results", icon: "" },
+  { href: "/ai-assistant", key: "aiChat", icon: "" },
 ];
 
 export default function Header() {
@@ -52,7 +52,7 @@ export default function Header() {
                 VoteBuddy
               </h1>
               <span className="text-[0.65rem] text-[var(--text-muted)] font-medium hidden sm:block">
-                {language === 'en' ? 'India Election Platform • चुनाव मंच' : 'भारत चुनाव मंच • India Election Platform'}
+                {language === 'en' ? 'India Election Platform | चुनाव मंच' : 'भारत चुनाव मंच | India Election Platform'}
               </span>
             </div>
           </Link>

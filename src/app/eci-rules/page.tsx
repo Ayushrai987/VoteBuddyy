@@ -23,7 +23,7 @@ export default function ECIRulesPage() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
-          ⚖️ {t('rules.libraryTitle')}
+          {t('rules.libraryTitle')}
         </h1>
         <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
           {t('rules.librarySubtitle')}
@@ -80,7 +80,7 @@ export default function ECIRulesPage() {
                   {/* Plain English */}
                   <div className="info-card mb-4">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-saffron-500 mb-2">
-                      💡 {t('rules.whatThisMeans')}
+                      {t('rules.whatThisMeans')}
                     </h4>
                     <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                       {rule.plainEnglish}
@@ -94,7 +94,6 @@ export default function ECIRulesPage() {
                   <ul className="space-y-2 mb-4">
                     {rule.points.map((point, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                        <span className="text-saffron-500 mt-0.5 flex-shrink-0">•</span>
                         {point}
                       </li>
                     ))}
@@ -119,13 +118,13 @@ export default function ECIRulesPage() {
                       rel="noopener noreferrer"
                       className="text-xs text-[var(--text-muted)] hover:text-saffron-500 transition-colors flex items-center gap-1"
                     >
-                      📄 {t('rules.readFullNotification')} ↗
+                      {t('rules.readFullNotification')}
                     </a>
                     <Link
                       href={`/ai-assistant?context=${encodeURIComponent(rule.title)}`}
                       className="text-xs text-saffron-500 font-semibold hover:underline flex items-center gap-1"
                     >
-                      🤖 {t('rules.askVoteBuddy')}
+                      {t('rules.askVoteBuddy')}
                     </Link>
                   </div>
                 </div>
@@ -138,23 +137,22 @@ export default function ECIRulesPage() {
       {/* Booth Rules Section */}
       <div className="glass-card p-6 sm:p-8 mb-8">
         <h2 className="text-xl font-extrabold text-[var(--text-primary)] mb-6">
-          🏢 {t('rules.pollingBoothRules')}
+          {t('rules.pollingBoothRules')}
         </h2>
 
         <div className="info-card mb-6">
           <p className="text-sm text-[var(--text-secondary)]">
-            👥 <strong>{t('rules.voterLimit')}:</strong> {boothRules.voterLimit}
+            <strong>{t('rules.voterLimit')}:</strong> {boothRules.voterLimit}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Facilities */}
           <div>
-            <h3 className="section-heading mb-3">✅ {t('rules.mandatoryFacilities')}</h3>
+            <h3 className="section-heading mb-3">{t('rules.mandatoryFacilities')}</h3>
             <ul className="space-y-2">
               {boothRules.mandatoryFacilities.map((f, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                  <span className="text-green-500 flex-shrink-0">✓</span>
                   {f}
                 </li>
               ))}
@@ -163,11 +161,10 @@ export default function ECIRulesPage() {
 
           {/* Location */}
           <div>
-            <h3 className="section-heading mb-3">📍 {t('rules.locationCriteria')}</h3>
+            <h3 className="section-heading mb-3">{t('rules.locationCriteria')}</h3>
             <ul className="space-y-2">
               {boothRules.locationCriteria.map((l, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                  <span className="text-india-ashoka flex-shrink-0">•</span>
                   {l}
                 </li>
               ))}
@@ -177,18 +174,16 @@ export default function ECIRulesPage() {
 
         {/* Officials */}
         <div className="mt-8">
-          <h3 className="section-heading mb-4">👤 {t('rules.keyOfficials')}</h3>
+          <h3 className="section-heading mb-4">{t('rules.keyOfficials')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {Object.values(boothRules.officials).map((official) => (
               <div key={official.title} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)]">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl">{official.icon}</span>
                   <h4 className="text-sm font-bold text-[var(--text-primary)]">{official.title}</h4>
                 </div>
                 <ul className="space-y-1.5">
                   {official.duties.map((d, i) => (
                     <li key={i} className="text-xs text-[var(--text-secondary)] flex items-start gap-1.5">
-                      <span className="text-saffron-500 flex-shrink-0">→</span>
                       {d}
                     </li>
                   ))}
@@ -201,7 +196,6 @@ export default function ECIRulesPage() {
 
       {filtered.length === 0 && (
         <div className="text-center py-12">
-          <span className="text-5xl block mb-4">🔍</span>
           <p className="text-[var(--text-secondary)]">{t('rules.noResults')}</p>
         </div>
       )}

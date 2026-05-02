@@ -35,7 +35,7 @@ export default function CandidatesPage() {
     <div className="page-enter mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
       <div className="text-center mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
-          👥 {t('candidates.title')}
+          {t('candidates.title')}
         </h1>
         <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
           {t('candidates.subtitle')}
@@ -84,7 +84,7 @@ export default function CandidatesPage() {
       {/* Compare panel */}
       {compareList.length >= 2 && (
         <div className="glass-card p-6 mb-8 animate-fade-up">
-          <h2 className="text-lg font-extrabold text-[var(--text-primary)] mb-4">⚖️ {t('candidates.compareTitle')}</h2>
+          <h2 className="text-lg font-extrabold text-[var(--text-primary)] mb-4">{t('candidates.compareTitle')}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -140,7 +140,7 @@ export default function CandidatesPage() {
                       <Link href={`/candidates/${c.id}`} className="text-base font-bold text-[var(--text-primary)] hover:text-saffron-500 transition-colors">
                         {c.name}
                       </Link>
-                      <p className="text-xs text-[var(--text-muted)]">{c.partyShort} • {c.constituency}</p>
+                      <p className="text-xs text-[var(--text-muted)]">{c.partyShort} - {c.constituency}</p>
                     </div>
                   </div>
                   <span className={`pill-badge text-[0.6rem] ${c.result === "Won" ? "pill-badge-green" : "pill-badge-accent"}`}>
@@ -172,7 +172,7 @@ export default function CandidatesPage() {
                 </div>
 
                 <div className="flex items-center justify-between pt-3 border-t border-[var(--border-color)]">
-                  <span className="text-xs text-[var(--text-muted)]">{c.state} • {c.electionYear}</span>
+                  <span className="text-xs text-[var(--text-muted)]">{c.state} - {c.electionYear}</span>
                   <div className="flex gap-2">
                     <button
                       onClick={() => toggleCompare(c.id)}
@@ -182,10 +182,10 @@ export default function CandidatesPage() {
                           : "border-[var(--border-color)] text-[var(--text-muted)] hover:border-saffron-500/30"
                       }`}
                     >
-                      {isComparing ? `✓ ${t('candidates.compare')}` : t('candidates.compare')}
+                      {isComparing ? t('candidates.compare') : t('candidates.compare')}
                     </button>
                     <Link href={`/candidates/${c.id}`} className="text-xs text-saffron-500 font-semibold hover:underline px-2 py-1">
-                      {t('candidates.view')} →
+                      {t('candidates.view')}
                     </Link>
                   </div>
                 </div>
@@ -197,7 +197,6 @@ export default function CandidatesPage() {
 
       {candidates.length === 0 && (
         <div className="text-center py-12">
-          <span className="text-5xl block mb-4">🔍</span>
           <p className="text-[var(--text-secondary)]">{t('candidates.noResults')}</p>
         </div>
       )}

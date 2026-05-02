@@ -28,7 +28,6 @@ export default function AdminPage() {
     return (
       <div className="page-enter mx-auto max-w-7xl px-4 sm:px-6 py-12 flex flex-col items-center justify-center min-h-[60vh]">
         <div className="glass-card p-8 text-center max-w-md w-full">
-          <span className="text-6xl block mb-6">🔐</span>
           <h1 className="text-2xl font-black text-[var(--text-primary)] mb-4">Admin Access Required</h1>
           <p className="text-[var(--text-secondary)] mb-8">
             Please sign in with an authorized Google account to access platform management tools.
@@ -48,7 +47,6 @@ export default function AdminPage() {
     return (
       <div className="page-enter mx-auto max-w-7xl px-4 sm:px-6 py-12 flex flex-col items-center justify-center min-h-[60vh]">
         <div className="glass-card p-8 text-center max-w-md w-full border-red-500/30">
-          <span className="text-6xl block mb-6">🚫</span>
           <h1 className="text-2xl font-black text-red-500 mb-4">Access Denied</h1>
           <p className="text-[var(--text-secondary)] mb-2">
             Your account <span className="font-bold text-[var(--text-primary)]">{user.email}</span> is not authorized.
@@ -77,7 +75,7 @@ export default function AdminPage() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-1">
-            🛠️ Platform Management
+            Platform Management
           </h1>
           <p className="text-[var(--text-secondary)]">
             Welcome back, {user.displayName?.split(' ')[0] || 'Admin'}. Manage data and monitor systems.
@@ -96,10 +94,10 @@ export default function AdminPage() {
       {/* Dashboard Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
         {[
-          { label: "Total Users", value: "12.4K", icon: "👥", trend: "+12%" },
-          { label: "API Uptime", value: "99.98%", icon: "🔌", trend: "Stable" },
-          { label: "Chat Volume", value: "842", icon: "💬", trend: "+5%" },
-          { label: "System Health", value: "Optimal", icon: "🟢", trend: "Good" },
+          { label: "Total Users", value: "12.4K", icon: "", trend: "+12%" },
+          { label: "API Uptime", value: "99.98%", icon: "", trend: "Stable" },
+          { label: "Chat Volume", value: "842", icon: "", trend: "+5%" },
+          { label: "System Health", value: "Optimal", icon: "", trend: "Good" },
         ].map((stat) => (
           <div key={stat.label} className="glass-card p-5 group hover:border-saffron-500/50 transition-all">
             <div className="flex items-center justify-between mb-4">
@@ -119,12 +117,12 @@ export default function AdminPage() {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { icon: "📰", title: "News Curation", desc: "Add, edit, or flag election news and fact-checks.", action: "Launch Tool" },
-          { icon: "📢", title: "Announcements", desc: "Post global alerts to the home page ticker.", action: "Manage" },
-          { icon: "🚩", title: "Data Review", desc: "Validate constituency and candidate updates.", action: "Review" },
-          { icon: "📈", title: "Analytics", desc: "View deep engagement metrics and heatmaps.", action: "Open Dashboard" },
-          { icon: "🛡️", title: "Access Control", desc: "Manage admin whitelist and permissions.", action: "Configure" },
-          { icon: "⚙️", title: "System Config", desc: "Update API keys and platform constants.", action: "Settings" },
+          { icon: "", title: "News Curation", desc: "Add, edit, or flag election news and fact-checks.", action: "Launch Tool" },
+          { icon: "", title: "Announcements", desc: "Post global alerts to the home page ticker.", action: "Manage" },
+          { icon: "", title: "Data Review", desc: "Validate constituency and candidate updates.", action: "Review" },
+          { icon: "", title: "Analytics", desc: "View deep engagement metrics and heatmaps.", action: "Open Dashboard" },
+          { icon: "", title: "Access Control", desc: "Manage admin whitelist and permissions.", action: "Configure" },
+          { icon: "", title: "System Config", desc: "Update API keys and platform constants.", action: "Settings" },
         ].map((tool) => (
           <div key={tool.title} className="glass-card p-6 flex flex-col gap-4">
             <div className="flex items-center gap-4">

@@ -22,7 +22,7 @@ export default function StatesPage() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
-          🗺️ State Explorer
+          State Explorer
         </h1>
         <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
           Explore detailed election data for all 28 states and 8 union territories of India.
@@ -84,7 +84,7 @@ export default function StatesPage() {
       {/* States grid */}
       {statesList.length > 0 && (
         <>
-          <h2 className="section-heading mb-4">🗺️ States ({statesList.length})</h2>
+          <h2 className="section-heading mb-4">States ({statesList.length})</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 stagger-children">
             {statesList.map((state) => (
               <Link
@@ -128,7 +128,7 @@ export default function StatesPage() {
                     CM: <strong className="text-[var(--text-secondary)]">{state.cm}</strong>
                   </span>
                   <span className="text-xs text-saffron-500 font-semibold group-hover:translate-x-1 transition-transform">
-                    View →
+                    View
                   </span>
                 </div>
               </Link>
@@ -140,7 +140,7 @@ export default function StatesPage() {
       {/* UTs grid */}
       {utsList.length > 0 && (
         <>
-          <h2 className="section-heading mb-4">🏝️ Union Territories ({utsList.length})</h2>
+          <h2 className="section-heading mb-4">Union Territories ({utsList.length})</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
             {utsList.map((ut) => (
               <Link
@@ -180,7 +180,7 @@ export default function StatesPage() {
 
       {filtered.length === 0 && (
         <div className="text-center py-12">
-          <span className="text-5xl block mb-4">🔍</span>
+          <span className="text-5xl block mb-4"></span>
           <p className="text-[var(--text-secondary)]">No states or UTs match your search.</p>
         </div>
       )}

@@ -4,10 +4,10 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const mobileLinks = [
-  { href: "/", key: "home", icon: "🏠" },
-  { href: "/booth-finder", key: "boothFinder", icon: "📍" },
-  { href: "/ai-assistant", key: "aiChat", icon: "🤖" },
-  { href: "/dashboard", key: "dashboard", icon: "👤" },
+  { href: "/", key: "home", icon: "" },
+  { href: "/booth-finder", key: "boothFinder", icon: "" },
+  { href: "/ai-assistant", key: "aiChat", icon: "" },
+  { href: "/dashboard", key: "dashboard", icon: "" },
 ];
 
 export default function MobileNav() {

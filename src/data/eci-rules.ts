@@ -1,5 +1,5 @@
 // ============================================================
-// VoteBuddy — ECI Rules Data
+// VoteBuddy - ECI Rules Data
 // ============================================================
 
 export interface ECIRuleCategory {
@@ -18,12 +18,12 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "mcc",
     title: "Model Code of Conduct",
     titleHi: "आदर्श आचार संहिता",
-    icon: "⚖️",
+    icon: "",
     summary: "Rules that govern the behavior of political parties and candidates during elections",
-    plainEnglish: "The Model Code of Conduct (MCC) is a set of guidelines issued by ECI for political parties and candidates during elections. It kicks in the moment elections are announced and stays until results are declared. Think of it as the 'fair play rulebook' — no hate speech, no bribing voters, no misusing government resources, and no making promises you can't keep with public money.",
+    plainEnglish: "The Model Code of Conduct (MCC) is a set of guidelines issued by ECI for political parties and candidates during elections. It kicks in the moment elections are announced and stays until results are declared. Think of it as the 'fair play rulebook' - no hate speech, no bribing voters, no misusing government resources, and no making promises you can't keep with public money.",
     points: [
       "No aggravation of caste/communal differences for votes",
-      "Criticism limited to policies and track record — no personal attacks",
+      "Criticism limited to policies and track record - no personal attacks",
       "No appeal to caste or communal feelings for votes",
       "No government machinery or resources for campaigning",
       "No new project announcements or inaugurations after MCC",
@@ -40,7 +40,7 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "nomination",
     title: "Nomination & Scrutiny Rules",
     titleHi: "नामांकन और जांच नियम",
-    icon: "📄",
+    icon: "",
     summary: "Rules governing who can contest elections and how to file nominations",
     plainEnglish: "To fight an election, you need to be an Indian citizen, at least 25 years old, a registered voter, and not disqualified under any law. You file nomination papers with the Returning Officer, pay a deposit (₹25,000 for Lok Sabha), and submit an affidavit declaring your criminal cases, assets, and education. If you get less than 1/6th of total valid votes, you lose your deposit.",
     points: [
@@ -60,16 +60,16 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "campaign",
     title: "Campaign Rules & Restrictions",
     titleHi: "प्रचार नियम और प्रतिबंध",
-    icon: "📢",
+    icon: "",
     summary: "What's allowed and prohibited during election campaigning",
-    plainEnglish: "You can hold rallies, go door-to-door, use social media — but there are boundaries. All campaigning must stop 48 hours before polling (the 'silence period'). Loudspeakers only between 6 AM and 10 PM. No liquor distribution 48 hours before and on polling day. Every rally needs police permission. Social media posts are also under MCC scrutiny.",
+    plainEnglish: "You can hold rallies, go door-to-door, use social media - but there are boundaries. All campaigning must stop 48 hours before polling (the 'silence period'). Loudspeakers only between 6 AM and 10 PM. No liquor distribution 48 hours before and on polling day. Every rally needs police permission. Social media posts are also under MCC scrutiny.",
     points: [
       "Campaign must stop 48 hours before polling day",
       "Loudspeakers allowed only between 6:00 AM and 10:00 PM",
       "No procession within 24 hours before polling",
       "Prior police permission required for all rallies and processions",
       "No liquor distribution 48 hours before and on polling day",
-      "No paid news — all ads need MCMC certification",
+      "No paid news - all ads need MCMC certification",
       "Social media campaigns are under MCC surveillance",
       "Campaign vehicles need district permits",
       "No defacement of public or private property without permission",
@@ -81,7 +81,7 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "expenditure",
     title: "Election Expenditure Limits",
     titleHi: "चुनाव खर्च सीमा",
-    icon: "💰",
+    icon: "",
     summary: "Maximum spending limits for candidates and parties",
     plainEnglish: "Every candidate has a spending cap. For Lok Sabha, it's ₹95 lakh in larger states and ₹75 lakh in smaller states. For Vidhan Sabha, it's ₹40 lakh (large) and ₹28 lakh (small). You must maintain day-wise accounts and submit them within 30 days of results. Expenditure observers shadow candidates to verify. Party spending is separate but also monitored.",
     points: [
@@ -103,9 +103,9 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "evmVvpat",
     title: "EVM & VVPAT System",
     titleHi: "ईवीएम और वीवीपैट प्रणाली",
-    icon: "🖥️",
+    icon: "",
     summary: "How Electronic Voting Machines and paper audit trail work",
-    plainEnglish: "India uses Electronic Voting Machines (EVMs) for voting. Each EVM has two parts: a Ballot Unit (where you press the button) and a Control Unit (held by the Presiding Officer). After you vote, a VVPAT machine prints a small paper slip showing who you voted for — visible for 7 seconds through a window. EVMs are completely standalone with no internet or wireless connectivity. In every constituency, 5 random booths' VVPAT slips are counted and matched with EVM results.",
+    plainEnglish: "India uses Electronic Voting Machines (EVMs) for voting. Each EVM has two parts: a Ballot Unit (where you press the button) and a Control Unit (held by the Presiding Officer). After you vote, a VVPAT machine prints a small paper slip showing who you voted for - visible for 7 seconds through a window. EVMs are completely standalone with no internet or wireless connectivity. In every constituency, 5 random booths' VVPAT slips are counted and matched with EVM results.",
     points: [
       "Two units: Ballot Unit (voter) + Control Unit (officer)",
       "Maximum capacity: 2000 votes, up to 384 candidates",
@@ -113,7 +113,7 @@ export const eciRules: Record<string, ECIRuleCategory> = {
       "7-second viewing window for voter to verify",
       "5 random VVPAT booths counted per constituency for verification",
       "Mock poll: minimum 50 votes before actual polling begins",
-      "EVMs are fully standalone — no WiFi, no Bluetooth, no internet",
+      "EVMs are fully standalone - no WiFi, no Bluetooth, no internet",
       "First Level Checking (FLC) done weeks before election",
       "VVPAT paper count is final if any discrepancy found",
       "EVMs manufactured only by BEL and ECIL (government companies)",
@@ -124,14 +124,14 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "observers",
     title: "Election Observers",
     titleHi: "चुनाव पर्यवेक्षक",
-    icon: "👁️",
+    icon: "",
     summary: "Types of observers deployed by ECI to ensure free and fair elections",
     plainEnglish: "ECI deploys senior officers from outside the state as observers. There are 4 types: General Observers (overall process), Expenditure Observers (track candidate spending), Police Observers (security), and Micro Observers (deployed at sensitive booths). They report directly to ECI, not to the state government.",
     points: [
-      "General Observer — oversees the entire election process in assigned constituency",
-      "Expenditure Observer — tracks candidate and party spending",
-      "Police Observer — ensures security arrangements and law enforcement",
-      "Micro Observer — deployed at specific sensitive polling booths",
+      "General Observer - oversees the entire election process in assigned constituency",
+      "Expenditure Observer - tracks candidate and party spending",
+      "Police Observer - ensures security arrangements and law enforcement",
+      "Micro Observer - deployed at specific sensitive polling booths",
       "All observers are IAS/IPS/IRS officers from outside the state",
       "Report directly to Election Commission of India",
       "Cannot be influenced by local administration",
@@ -142,7 +142,7 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "pollingDay",
     title: "Polling Day Rules",
     titleHi: "मतदान दिवस नियम",
-    icon: "🗳️",
+    icon: "",
     summary: "Rules for voters, agents, and officials on election day",
     plainEnglish: "On polling day, carry your voter ID, check your booth number in advance, and reach before closing time (usually 6 PM). You cannot carry phones inside the voting compartment, wear party symbols, or take selfies with the EVM. Within 100 meters of the booth, no campaigning is allowed. Polling agents of candidates can be present but cannot interfere.",
     points: [
@@ -162,7 +162,7 @@ export const eciRules: Record<string, ECIRuleCategory> = {
     id: "paidNews",
     title: "Media & Paid News Rules",
     titleHi: "मीडिया और पेड न्यूज़ नियम",
-    icon: "📰",
+    icon: "",
     summary: "Rules governing media coverage and paid political advertisements",
     plainEnglish: "Paid news disguised as editorial content is illegal. All political ads in media must carry a 'PAID ADVERTISEMENT' label. Each district has a Media Certification and Monitoring Committee (MCMC) that reviews ads. Social media ads must have transparent funding info. Violations can lead to disqualification under RPA. No exit polls are allowed during the polling period.",
     points: [
@@ -178,11 +178,11 @@ export const eciRules: Record<string, ECIRuleCategory> = {
   },
   nota: {
     id: "nota",
-    title: "NOTA — None of the Above",
-    titleHi: "नोटा — उपरोक्त में से कोई नहीं",
-    icon: "❌",
+    title: "NOTA - None of the Above",
+    titleHi: "नोटा - उपरोक्त में से कोई नहीं",
+    icon: "",
     summary: "The option to reject all candidates",
-    plainEnglish: "Since 2013, Indian voters have the option to press NOTA — 'None of the Above' — if they don't want to vote for any candidate. It's the last button on the EVM. While NOTA votes are counted and reported, even if NOTA gets the most votes, the candidate with the next highest votes still wins. It's essentially a form of protest voting.",
+    plainEnglish: "Since 2013, Indian voters have the option to press NOTA - 'None of the Above' - if they don't want to vote for any candidate. It's the last button on the EVM. While NOTA votes are counted and reported, even if NOTA gets the most votes, the candidate with the next highest votes still wins. It's essentially a form of protest voting.",
     points: [
       "Introduced by Supreme Court in September 2013",
       "Last button on the EVM ballot unit",
@@ -190,7 +190,7 @@ export const eciRules: Record<string, ECIRuleCategory> = {
       "NOTA votes are counted and publicly reported",
       "Even if NOTA gets most votes, the highest-voted candidate wins",
       "Acts as a form of democratic protest",
-      "Available in all elections — LS, VS, and local body",
+      "Available in all elections - LS, VS, and local body",
       "NOTA symbol is a ballot paper with a cross mark",
     ],
   },
@@ -199,9 +199,9 @@ export const eciRules: Record<string, ECIRuleCategory> = {
 export const voterRegistration = {
   form6: {
     id: "form6",
-    title: "Form 6 — New Voter Registration",
-    titleHi: "फॉर्म 6 — नया मतदाता पंजीकरण",
-    icon: "📝",
+    title: "Form 6 - New Voter Registration",
+    titleHi: "फॉर्म 6 - नया मतदाता पंजीकरण",
+    icon: "",
     summary: "Register as a new voter in your constituency",
     steps: [
       "Check eligibility: Indian citizen, 18+ by qualifying date",
@@ -222,9 +222,9 @@ export const voterRegistration = {
   },
   form7: {
     id: "form7",
-    title: "Form 7 — Objection / Deletion",
-    titleHi: "फॉर्म 7 — आपत्ति / विलोपन",
-    icon: "🗑️",
+    title: "Form 7 - Objection / Deletion",
+    titleHi: "फॉर्म 7 - आपत्ति / विलोपन",
+    icon: "",
     summary: "Request deletion or raise objection against an entry",
     details: [
       "Used to request deletion or raise objection to an electoral roll entry",
@@ -236,9 +236,9 @@ export const voterRegistration = {
   },
   form8: {
     id: "form8",
-    title: "Form 8 — Correction of Details",
-    titleHi: "फॉर्म 8 — विवरण में सुधार",
-    icon: "✏️",
+    title: "Form 8 - Correction of Details",
+    titleHi: "फॉर्म 8 - विवरण में सुधार",
+    icon: "",
     summary: "Correct errors in your voter registration details",
     details: [
       "Form 8A: Correct name, age, photo, address, gender",
@@ -250,12 +250,12 @@ export const voterRegistration = {
   },
   epic: {
     id: "epic",
-    title: "EPIC — Voter ID Card",
-    titleHi: "EPIC — मतदाता पहचान पत्र",
-    icon: "🪪",
+    title: "EPIC - Voter ID Card",
+    titleHi: "EPIC - मतदाता पहचान पत्र",
+    icon: "",
     summary: "Your Elector's Photo Identity Card",
     details: [
-      "Electors Photo Identity Card — primary voter ID",
+      "Electors Photo Identity Card - primary voter ID",
       "Issued free of cost by Election Commission",
       "Contains: name, photo, DOB, address, EPIC number",
       "e-EPIC downloadable from voters.eci.gov.in",
@@ -274,7 +274,7 @@ export const voterRegistration = {
     id: "helpline",
     title: "Voter Helpline 1950",
     titleHi: "मतदाता हेल्पलाइन 1950",
-    icon: "📞",
+    icon: "",
     summary: "Toll-free helpline for all voter services",
     details: [
       "Toll-free number: 1950",
@@ -289,16 +289,16 @@ export const voterRegistration = {
 };
 
 export const electionProcess = [
-  { step: 1, title: "Announcement", titleHi: "चुनाव की घोषणा", icon: "📣", desc: "ECI announces election schedule with dates for nomination, scrutiny, withdrawal, and polling.", duration: "45-60 days before first poll" },
-  { step: 2, title: "Model Code of Conduct", titleHi: "आदर्श आचार संहिता", icon: "⚖️", desc: "MCC comes into effect immediately upon announcement. All parties must follow strict guidelines.", duration: "Immediate" },
-  { step: 3, title: "Filing Nominations", titleHi: "नामांकन दाखिल", icon: "📄", desc: "Candidates file papers with Returning Officer. Deposit: ₹25,000 General / ₹12,500 SC-ST (LS).", duration: "~7 day window" },
-  { step: 4, title: "Scrutiny", titleHi: "नामांकन जांच", icon: "🔍", desc: "Returning Officer verifies all nomination papers for eligibility and validity.", duration: "1 day after deadline" },
-  { step: 5, title: "Withdrawal", titleHi: "नामांकन वापसी", icon: "↩️", desc: "Candidates may withdraw nominations before the deadline.", duration: "2 days after scrutiny" },
-  { step: 6, title: "Campaigning", titleHi: "चुनाव प्रचार", icon: "📢", desc: "Rallies, media campaigns, door-to-door canvassing. Must stop 48 hours before polling.", duration: "2-3 weeks" },
-  { step: 7, title: "Silence Period", titleHi: "मौन अवधि", icon: "🤫", desc: "No campaigning allowed. Voters reflect on their choice.", duration: "48 hours" },
-  { step: 8, title: "Polling Day", titleHi: "मतदान दिवस", icon: "🗳️", desc: "Voters cast votes via EVMs at designated polling booths. Typically 7 AM to 6 PM.", duration: "1 day per phase" },
-  { step: 9, title: "Counting", titleHi: "मतगणना", icon: "📊", desc: "Postal ballots counted first, then EVM votes round by round at designated counting centers.", duration: "1-2 days" },
-  { step: 10, title: "Results & Formation", titleHi: "परिणाम और सरकार गठन", icon: "🏛️", desc: "Results declared constituency-wise. Majority party/coalition invited to form government.", duration: "Same day + weeks" },
+  { step: 1, title: "Announcement", titleHi: "चुनाव की घोषणा", icon: "", desc: "ECI announces election schedule with dates for nomination, scrutiny, withdrawal, and polling.", duration: "45-60 days before first poll" },
+  { step: 2, title: "Model Code of Conduct", titleHi: "आदर्श आचार संहिता", icon: "", desc: "MCC comes into effect immediately upon announcement. All parties must follow strict guidelines.", duration: "Immediate" },
+  { step: 3, title: "Filing Nominations", titleHi: "नामांकन दाखिल", icon: "", desc: "Candidates file papers with Returning Officer. Deposit: ₹25,000 General / ₹12,500 SC-ST (LS).", duration: "~7 day window" },
+  { step: 4, title: "Scrutiny", titleHi: "नामांकन जांच", icon: "", desc: "Returning Officer verifies all nomination papers for eligibility and validity.", duration: "1 day after deadline" },
+  { step: 5, title: "Withdrawal", titleHi: "नामांकन वापसी", icon: "", desc: "Candidates may withdraw nominations before the deadline.", duration: "2 days after scrutiny" },
+  { step: 6, title: "Campaigning", titleHi: "चुनाव प्रचार", icon: "", desc: "Rallies, media campaigns, door-to-door canvassing. Must stop 48 hours before polling.", duration: "2-3 weeks" },
+  { step: 7, title: "Silence Period", titleHi: "मौन अवधि", icon: "", desc: "No campaigning allowed. Voters reflect on their choice.", duration: "48 hours" },
+  { step: 8, title: "Polling Day", titleHi: "मतदान दिवस", icon: "", desc: "Voters cast votes via EVMs at designated polling booths. Typically 7 AM to 6 PM.", duration: "1 day per phase" },
+  { step: 9, title: "Counting", titleHi: "मतगणना", icon: "", desc: "Postal ballots counted first, then EVM votes round by round at designated counting centers.", duration: "1-2 days" },
+  { step: 10, title: "Results & Formation", titleHi: "परिणाम और सरकार गठन", icon: "", desc: "Results declared constituency-wise. Majority party/coalition invited to form government.", duration: "Same day + weeks" },
 ];
 
 export const boothRules = {
@@ -319,7 +319,7 @@ export const boothRules = {
   officials: {
     blo: {
       title: "BLO (Booth Level Officer)",
-      icon: "👤",
+      icon: "",
       duties: [
         "Door-to-door voter list verification",
         "Assists in new voter registration",
@@ -331,7 +331,7 @@ export const boothRules = {
     },
     sectorOfficer: {
       title: "Sector Officer",
-      icon: "👥",
+      icon: "",
       duties: [
         "Supervises 10-15 polling booths",
         "Ensures election material delivery and collection",
@@ -343,7 +343,7 @@ export const boothRules = {
     },
     presidingOfficer: {
       title: "Presiding Officer",
-      icon: "🏛️",
+      icon: "",
       duties: [
         "In-charge of the polling booth",
         "Conducts mock poll at 5:30 AM on polling day",

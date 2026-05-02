@@ -1,5 +1,5 @@
 // ============================================================
-// VoteBuddy — Core TypeScript Types
+// VoteBuddy - Core TypeScript Types
 // ============================================================
 
 export interface State {

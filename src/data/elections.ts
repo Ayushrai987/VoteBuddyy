@@ -1,5 +1,5 @@
 // ============================================================
-// VoteBuddy — Elections & Constituency Data
+// VoteBuddy - Elections & Constituency Data
 // ============================================================
 import { Election } from "@/types";
 
@@ -49,7 +49,7 @@ export const upDeepDive = {
     "Varanasi Division": ["Varanasi", "Chandauli", "Ghazipur"],
   },
   phaseBreakdown: [
-    { phase: 1, districts: "Western UP — Shamli, Muzaffarnagar, Meerut, Hapur, Ghaziabad, G.B.Nagar, Bulandshahr, Aligarh, Baghpat, Bijnor, Saharanpur", seats: 10, date: "April 19, 2024" },
+    { phase: 1, districts: "Western UP - Shamli, Muzaffarnagar, Meerut, Hapur, Ghaziabad, G.B.Nagar, Bulandshahr, Aligarh, Baghpat, Bijnor, Saharanpur", seats: 10, date: "April 19, 2024" },
     { phase: 2, districts: "Amroha, Moradabad, Rampur, Bareilly, Pilibhit, Shahjahanpur, Kheri, Hardoi, Sambhal, Badaun", seats: 8, date: "April 26, 2024" },
     { phase: 3, districts: "Hathras, Agra, Firozabad, Mainpuri, Etah, Kasganj, Etawah, Farrukhabad, Kannauj, Auraiya", seats: 10, date: "May 7, 2024" },
     { phase: 4, districts: "Lucknow, Sitapur, Rae Bareli, Unnao, Kanpur, Fatehpur, Banda, Hamirpur, Jhansi, Lalitpur, Jalaun", seats: 12, date: "May 13, 2024" },

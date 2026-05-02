@@ -34,7 +34,7 @@ export default function ResultsPage() {
     <div className="page-enter mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
       <div className="text-center mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
-          📈 {t('nav.results')}
+          {t('nav.results')}
         </h1>
         <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
           {t('results.subtitle')}

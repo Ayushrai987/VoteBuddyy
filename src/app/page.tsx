@@ -102,19 +102,19 @@ function CountdownTimer() {
 function NewsTicker() {
   const { language } = useLanguage();
   const announcements = language === 'en' ? [
-    "📢 Bihar Assembly Elections 2025 — Schedule to be announced soon",
-    "📋 Delhi MCD By-Elections — Results declared",
-    "🗳️ Voter Registration for Jan 1, 2026 qualifying date now open",
-    "📊 ECI launches updated Voter Helpline App v3.0",
-    "⚖️ Model Code of Conduct applies immediately upon election announcement",
-    "📍 Use Booth Finder to locate your nearest polling station",
+    "Bihar Assembly Elections 2025 - Schedule to be announced soon",
+    "Delhi MCD By-Elections - Results declared",
+    "Voter Registration for Jan 1, 2026 qualifying date now open",
+    "ECI launches updated Voter Helpline App v3.0",
+    "Model Code of Conduct applies immediately upon election announcement",
+    "Use Booth Finder to locate your nearest polling station",
   ] : [
-    "📢 बिहार विधानसभा चुनाव 2025 — कार्यक्रम की घोषणा जल्द की जाएगी",
-    "📋 दिल्ली एमसीडी उपचुनाव — परिणाम घोषित",
-    "🗳️ 1 जनवरी, 2026 की योग्यता तिथि के लिए मतदाता पंजीकरण अब खुला है",
-    "📊 ईसीआई ने अपडेटेड वोटर हेल्पलाइन ऐप v3.0 लॉन्च किया",
-    "⚖️ चुनाव की घोषणा के तुरंत बाद आदर्श आचार संहिता लागू हो जाती है",
-    "📍 अपने नजदीकी मतदान केंद्र का पता लगाने के लिए बूथ फाइंडर का उपयोग करें",
+    "बिहार विधानसभा चुनाव 2025 - कार्यक्रम की घोषणा जल्द की जाएगी",
+    "दिल्ली एमसीडी उपचुनाव - परिणाम घोषित",
+    "1 जनवरी, 2026 की योग्यता तिथि के लिए मतदाता पंजीकरण अब खुला है",
+    "ईसीआई ने अपडेटेड वोटर हेल्पलाइन ऐप v3.0 लॉन्च किया",
+    "चुनाव की घोषणा के तुरंत बाद आदर्श आचार संहिता लागू हो जाती है",
+    "अपने नजदीकी मतदान केंद्र का पता लगाने के लिए बूथ फाइंडर का उपयोग करें",
   ];
 
   return (
@@ -148,7 +148,7 @@ function CTACard({ icon, title, desc, href, color }: { icon: string; title: stri
       </h3>
       <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{desc}</p>
       <span className="text-saffron-500 text-sm font-semibold mt-auto flex items-center gap-1 group-hover:gap-2 transition-all">
-        {t('common.explore')} →
+        {t('common.explore')}
       </span>
     </Link>
   );
@@ -183,26 +183,25 @@ export default function HomePage() {
   const totalUTs = states.filter((s) => s.type === "UT").length;
 
   const ctas = [
-    { icon: "📍", title: t('nav.boothFinder'), desc: language === 'en' ? "Locate your polling station with address, map, BLO details, and accessibility info." : "पते, मानचित्र, बीएलओ विवरण और पहुंच जानकारी के साथ अपने मतदान केंद्र का पता लगाएं।", href: "/booth-finder", color: "#FF6B35" },
-    { icon: "📝", title: t('nav.voterServices'), desc: language === 'en' ? "Register to vote, correct details, check status, download voter ID, and more." : "वोट देने के लिए पंजीकरण करें, विवरण सुधारें, स्थिति जांचें, मतदाता पहचान पत्र डाउनलोड करें, और बहुत कुछ।", href: "/voter", color: "#0EA5E9" },
-    { icon: "🗺️", title: t('nav.states'), desc: language === 'en' ? "Interactive India map with detailed data for all 28 states and 8 union territories." : "सभी 28 राज्यों और 8 केंद्र शासित प्रदेशों के विस्तृत डेटा के साथ इंटरैक्टिव भारत मानचित्र।", href: "/states", color: "#138808" },
-    { icon: "📊", title: t('nav.results'), desc: language === 'en' ? "Historical results from 2009-2024 with swing analysis, party tallies, and turnout data." : "स्विंग विश्लेषण, पार्टी मिलान और मतदान डेटा के साथ 2009-2024 के ऐतिहासिक परिणाम।", href: "/results", color: "#8B5CF6" },
-    { icon: "⚖️", title: t('nav.eciRules'), desc: language === 'en' ? "Complete guide to Model Code of Conduct, campaign rules, EVM/VVPAT, and more." : "आदर्श आचार संहिता, अभियान नियम, ईवीएम/वीवीपीएटी, और बहुत कुछ के लिए संपूर्ण मार्गदर्शिका।", href: "/eci-rules", color: "#EC4899" },
-    { icon: "🤖", title: t('nav.aiChat'), desc: language === 'en' ? "Ask VoteBuddy anything about Indian elections in English or Hindi. Powered by AI." : "वोटबडी से भारतीय चुनावों के बारे में अंग्रेजी या हिंदी में कुछ भी पूछें। एआई द्वारा संचालित।", href: "/ai-assistant", color: "#F59E0B" },
+    { icon: "", title: t('nav.voterServices'), desc: language === 'en' ? "Register to vote, correct details, check status, download voter ID, and more." : "वोट देने के लिए पंजीकरण करें, विवरण सुधारें, स्थिति जांचें, मतदाता पहचान पत्र डाउनलोड करें, और बहुत कुछ।", href: "/voter", color: "#0EA5E9" },
+    { icon: "", title: t('nav.states'), desc: language === 'en' ? "Interactive India map with detailed data for all 28 states and 8 union territories." : "सभी 28 राज्यों और 8 केंद्र शासित प्रदेशों के विस्तृत डेटा के साथ इंटरैक्टिव भारत मानचित्र।", href: "/states", color: "#138808" },
+    { icon: "", title: t('nav.results'), desc: language === 'en' ? "Historical results from 2009-2024 with swing analysis, party tallies, and turnout data." : "स्विंग विश्लेषण, पार्टी मिलान और मतदान डेटा के साथ 2009-2024 के ऐतिहासिक परिणाम।", href: "/results", color: "#8B5CF6" },
+    { icon: "", title: t('nav.eciRules'), desc: language === 'en' ? "Complete guide to Model Code of Conduct, campaign rules, EVM/VVPAT, and more." : "आदर्श आचार संहिता, अभियान नियम, ईवीएम/वीवीपीएटी, और बहुत कुछ के लिए संपूर्ण मार्गदर्शिका।", href: "/eci-rules", color: "#EC4899" },
+    { icon: "", title: t('nav.aiChat'), desc: language === 'en' ? "Ask VoteBuddy anything about Indian elections in English or Hindi. Powered by AI." : "वोटबडी से भारतीय चुनावों के बारे में अंग्रेजी या हिंदी में कुछ भी पूछें। एआई द्वारा संचालित।", href: "/ai-assistant", color: "#F59E0B" },
   ];
 
   const statsGrid = [
-    { label: t('home.registeredVoters'), value: 97, suffix: language === 'en' ? " Cr+" : " करोड़+", icon: "👥" },
-    { label: t('home.pollingBooths'), value: 10, suffix: language === 'en' ? ".5 L+" : ".5 लाख+", icon: "🏢" },
-    { label: t('home.lsSeats'), value: 543, suffix: "", icon: "🏛️" },
-    { label: t('home.states'), value: totalStates, suffix: "", icon: "🗺️" },
-    { label: t('home.uts'), value: totalUTs, suffix: "", icon: "🏝️" },
-    { label: t('home.vsSeats'), value: 4120, suffix: "+", icon: "🏫" },
+    { label: t('home.registeredVoters'), value: 97, suffix: language === 'en' ? " Cr+" : " करोड़+", icon: "" },
+    { label: t('home.pollingBooths'), value: 10, suffix: language === 'en' ? ".5 L+" : ".5 लाख+", icon: "" },
+    { label: t('home.lsSeats'), value: 543, suffix: "", icon: "" },
+    { label: t('home.states'), value: totalStates, suffix: "", icon: "" },
+    { label: t('home.uts'), value: totalUTs, suffix: "", icon: "" },
+    { label: t('home.vsSeats'), value: 4120, suffix: "+", icon: "" },
   ];
 
   return (
     <div className="page-enter">
-      {/* ─── HERO ─── */}
+      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-8 sm:pt-20 sm:pb-12">
           <div className="text-center max-w-3xl mx-auto">
@@ -228,17 +227,17 @@ export default function HomePage() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
               <Link href="/booth-finder" className="btn-accent text-base px-8 py-3 rounded-xl flex items-center gap-2">
-                📍 {t('nav.boothFinder')}
+                {t('nav.boothFinder')}
               </Link>
               <Link href="/voter" className="btn-ghost text-base px-8 py-3 rounded-xl flex items-center gap-2">
-                📝 {t('home.checkVoterStatus')}
+                {t('home.checkVoterStatus')}
               </Link>
             </div>
 
             {/* Countdown */}
             <div className="glass-card inline-flex flex-col items-center gap-3 px-8 py-5">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                ⏱️ {t('home.nextElection')} — {t('home.bihar2025')}
+                {t('home.nextElection')} - {t('home.bihar2025')}
               </span>
               <CountdownTimer />
             </div>
@@ -246,15 +245,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── NEWS TICKER ─── */}
+      {/* News Ticker */}
       <NewsTicker />
 
-      {/* ─── STATS ─── */}
+      {/* Stats */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 stagger-children">
           {statsGrid.map((stat) => (
             <div key={stat.label} className="stat-card">
-              <span className="text-2xl mb-2 block">{stat.icon}</span>
               <StatCounter target={stat.value} suffix={stat.suffix} />
               <span className="text-[0.65rem] text-[var(--text-muted)] font-semibold uppercase tracking-wider mt-1 block">
                 {stat.label}
@@ -264,7 +262,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── CTAs ─── */}
+      {/* CTAs */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-12">
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] mb-2">
@@ -281,18 +279,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 2024 RESULTS SNAPSHOT ─── */}
+      {/* 2024 Results Snapshot */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-16">
         <div className="glass-card p-6 sm:p-8">
           <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
             <div>
               <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)]">
-                🏛️ {t('home.resultsSnapshot')}
+                {t('home.resultsSnapshot')}
               </h2>
-              <p className="text-sm text-[var(--text-secondary)] mt-1">{language === 'en' ? '18th General Election — 543 Seats' : '18वां आम चुनाव — 543 सीटें'}</p>
+              <p className="text-sm text-[var(--text-secondary)] mt-1">{language === 'en' ? '18th General Election - 543 Seats' : '18वां आम चुनाव - 543 सीटें'}</p>
             </div>
             <Link href="/results" className="text-sm font-semibold text-saffron-500 hover:underline">
-              {t('home.viewFullResults')} →
+              {t('home.viewFullResults')}
             </Link>
           </div>
 
