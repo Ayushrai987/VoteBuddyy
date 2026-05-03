@@ -155,7 +155,12 @@ export default function AIAssistantPage() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 mb-4 space-y-6">
+      <div 
+        className="flex-1 overflow-y-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 mb-4 space-y-6"
+        aria-live="polite"
+        role="log"
+        aria-label="Chat messages"
+      >
         {messages.map((message) => (
           <div key={message.id} className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             {message.role === 'assistant' && (

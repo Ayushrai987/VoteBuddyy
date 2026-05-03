@@ -17,6 +17,13 @@ const navLinks = [
   { href: "/ai-assistant", key: "aiChat", icon: "" },
 ];
 
+/**
+ * Primary navigation header component.
+ * Provides access to all main platform modules and user session management.
+ * Optimized for accessibility with semantic HTML and ARIA landmarks.
+ * 
+ * @returns {React.ReactElement} The rendered navigation header.
+ */
 export default function Header() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
@@ -24,8 +31,12 @@ export default function Header() {
   const { user, signInWithGoogle, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-xl">
+    <header role="banner" className="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-card)] backdrop-blur-xl">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-saffron-500 focus:text-white focus:rounded-lg">
+        Skip to main content
+      </a>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Brand */}

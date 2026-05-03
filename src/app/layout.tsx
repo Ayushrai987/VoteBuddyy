@@ -98,7 +98,7 @@ export default function RootLayout({
               {/* App content */}
               <div className="relative z-10 flex flex-col min-h-screen">
                 <Header />
-                <main className="flex-1">{children}</main>
+                <main id="main-content" tabIndex={-1} className="flex-1 outline-none">{children}</main>
                 <Footer />
                 <MobileNav />
               </div>

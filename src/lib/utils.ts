@@ -2,8 +2,10 @@ import { allElections } from "@/data/elections";
 import { Election } from "@/types";
 
 /**
- * Returns the status of an election based on its date.
- * Labels: Concluded, Upcoming, Live
+ * Determines the status of an election based on the current date.
+ * 
+ * @param {string | undefined} electionDateStr - ISO date string of the election.
+ * @returns {Object} Object containing status label, color theme, and animations.
  */
 export const getElectionStatus = (electionDateStr: string | undefined) => {
   if (!electionDateStr) return { label: "Upcoming", color: "orange", status: "upcoming" as const };
@@ -29,7 +31,9 @@ export const getElectionStatus = (electionDateStr: string | undefined) => {
 };
 
 /**
- * Returns the next upcoming election
+ * Retrieves the next upcoming election from the global data set.
+ * 
+ * @returns {Election | undefined} The election object or undefined if none found.
  */
 export const getNextElection = (): Election | undefined => {
   const now = new Date();
@@ -39,7 +43,9 @@ export const getNextElection = (): Election | undefined => {
 };
 
 /**
- * Returns the date string for the next election
+ * Convenience helper to get the formatted date of the next election.
+ * 
+ * @returns {string} The ISO date string or empty string.
  */
 export const getNextElectionDate = (): string => {
   const next = getNextElection();
@@ -47,7 +53,11 @@ export const getNextElectionDate = (): string => {
 };
 
 /**
- * Formats vote counts into human readable strings (e.g. 1.2M+, 50K+)
+ * Formats numeric vote counts into localized, human-readable strings.
+ * Supports Crore (Cr), Lakh (L), and Thousand (K) denominations.
+ * 
+ * @param {number} count - The raw numeric count.
+ * @returns {string} Formatted string (e.g., "1.2 Cr+").
  */
 export const formatVoteCount = (count: number): string => {
   if (count >= 10000000) {
@@ -63,8 +73,11 @@ export const formatVoteCount = (count: number): string => {
 };
 
 /**
- * Validates Indian EPIC (Voter ID) number format
- * Standard format: 3 letters followed by 7 digits
+ * Validates the format of an Indian EPIC (Voter ID) number.
+ * Standard format: 3 uppercase letters followed by 7 numeric digits.
+ * 
+ * @param {string} epic - The EPIC string to validate.
+ * @returns {boolean} True if format is valid, false otherwise.
  */
 export const isValidEPIC = (epic: string): boolean => {
   const regex = /^[A-Z]{3}[0-9]{7}$/;
