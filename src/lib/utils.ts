@@ -1,4 +1,5 @@
-import { allElections, Election } from "@/data/elections";
+import { allElections } from "@/data/elections";
+import { Election } from "@/types";
 
 /**
  * Returns the status of an election based on its date.
