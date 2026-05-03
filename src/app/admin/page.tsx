@@ -87,6 +87,7 @@ export default function AdminPage() {
             <p className="text-xs font-bold text-[var(--text-primary)]">{user.email}</p>
             <p className="text-[10px] text-[var(--text-muted)]">Active Session</p>
           </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={user.photoURL || ''} alt="Admin" className="w-10 h-10 rounded-full border-2 border-saffron-500 p-0.5" />
         </div>
       </div>

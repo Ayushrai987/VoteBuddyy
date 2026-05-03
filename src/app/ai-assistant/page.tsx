@@ -54,7 +54,7 @@ export default function AIAssistantPage() {
         setMessages([language === 'en' ? INITIAL_MESSAGE_EN : INITIAL_MESSAGE_HI]);
       }
     }
-  }, [language, messages.length]);
+  }, [language, messages]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
