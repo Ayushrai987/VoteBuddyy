@@ -3,9 +3,11 @@
 // ============================================================
 "use client";
 import { useState } from "react";
-import { lokSabha2024, upcomingElections2026, getElectionStatus } from "@/data/elections";
+import { lokSabha2024, upcomingElections2026 } from "@/data/elections";
 import { electionProcess } from "@/data/eci-rules";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { ElectionCard } from "@/components/elections/ElectionCard";
+import { getElectionStatus } from "@/lib/utils";
 
 function PhaseStepper({ phases }: { phases: typeof lokSabha2024.phases }) {
   const [activePhase, setActivePhase] = useState(0);
@@ -212,28 +214,9 @@ export default function ElectionsPage() {
             
             <h3 className="section-heading mb-4">{t('elections.upcoming')}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left mb-10">
-              {upcomingElections2026.map((e) => {
-                const status = getElectionStatus(e.electionDate);
-                return (
-                  <div key={e.id} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)] hover:border-saffron-500/30 transition-all">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-bold text-[var(--text-primary)]">{e.name.split(' Assembly')[0]}</span>
-                      <div className="flex flex-col items-end gap-1">
-                        <span className={`pill-badge text-[0.6rem] flex items-center gap-1 ${status.color === 'orange' ? "pill-badge-accent" : "pill-badge-green"}`}>
-                          {status.pulse && <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />}
-                          {status.label}
-                        </span>
-                        {!e.isAnnounced && (
-                          <span className="text-[0.55rem] text-orange-500 font-bold uppercase tracking-tighter">
-                            Schedule Not Announced
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <p className="text-sm text-[var(--text-secondary)]">{e.totalSeats} {t('elections.seats')} - {e.year}</p>
-                  </div>
-                );
-              })}
+              {upcomingElections2026.map((e) => (
+                <ElectionCard key={e.id} election={e} />
+              ))}
             </div>
 
             <h3 className="section-heading mb-4">{t('elections.completed')} (2024-2025)</h3>

@@ -5,6 +5,8 @@ import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-map
 import { Search, MapPin, Navigation, Map as MapIcon, Loader2 } from 'lucide-react';
 import { Booth } from '@/types';
 import { useLanguage } from '@/components/providers/LanguageProvider';
+import { BoothCard } from '@/components/booth/BoothCard';
+import { isValidEPIC } from '@/lib/utils';
 
 const mapContainerStyle = {
   width: '100%',
@@ -91,7 +93,10 @@ export default function BoothFinderPage() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!searchEpic.trim()) return;
+    if (!searchEpic.trim() || !isValidEPIC(searchEpic)) {
+      alert(language === 'en' ? 'Please enter a valid EPIC number (e.g. ABC1234567)' : 'कृपया एक मान्य ईपीआईसी नंबर दर्ज करें (जैसे ABC1234567)');
+      return;
+    }
     
     setIsSearching(true);
     // Simulate API call
@@ -205,8 +210,10 @@ export default function BoothFinderPage() {
             </div>
             <div className="overflow-y-auto p-4 space-y-3">
               {searchResults.map(booth => (
-                <div 
+                <BoothCard 
                   key={booth.id}
+                  booth={booth}
+                  isSelected={selectedBooth?.id === booth.id}
                   onClick={() => {
                     setSelectedBooth(booth);
                     if (map && booth.latitude && booth.longitude) {
@@ -214,28 +221,7 @@ export default function BoothFinderPage() {
                       map.setZoom(16);
                     }
                   }}
-                  className={`p-3 rounded-xl border cursor-pointer transition-all ${
-                    selectedBooth?.id === booth.id 
-                      ? 'border-saffron-500 bg-saffron-500/5 shadow-md' 
-                      : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-saffron-500/50'
-                  }`}
-                >
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-[var(--text-primary)] text-sm">{booth.name}</h3>
-                    <span className="pill-badge bg-[var(--bg-glass)]">{language === 'en' ? 'Booth' : 'बूथ'} {booth.number}</span>
-                  </div>
-                  <p className="text-xs text-[var(--text-secondary)] mb-2 flex items-start gap-1">
-                    <MapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-red-500" />
-                    {booth.address}
-                  </p>
-                  
-                  {/* Accessibility badges */}
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {booth.accessibility.ramp && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-500/10 text-green-600 border border-green-500/20">{t('booth.accessibility.ramp')}</span>}
-                    {booth.accessibility.drinkingWater && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 border border-blue-500/20">{t('booth.accessibility.water')}</span>}
-                    {booth.accessibility.toilets && <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 border border-purple-500/20">{t('booth.accessibility.toilet')}</span>}
-                  </div>
-                </div>
+                />
               ))}
             </div>
           </div>

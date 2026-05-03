@@ -23,7 +23,8 @@ export const translations = {
       loading: "Loading...",
       back: "Back",
       submit: "Submit",
-      cancel: "Cancel"
+      cancel: "Cancel",
+      explore: "Explore"
     },
     home: {
       heroTitle: "Empowering Your Vote",

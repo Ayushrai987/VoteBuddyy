@@ -84,6 +84,7 @@ export default function Header() {
               onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
               className="px-3 h-9 rounded-xl border border-[var(--border-color)] bg-[var(--bg-glass)] flex items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-hover)] transition-all gap-1"
               aria-label="Toggle language"
+              data-testid="lang-toggle"
             >
               <span className={language === 'hi' ? 'text-saffron-500' : ''}>HI</span>
               <span className="text-[var(--text-muted)]">/</span>

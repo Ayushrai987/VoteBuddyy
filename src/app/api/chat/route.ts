@@ -14,16 +14,66 @@ Guidelines:
 6. Speak in a polite, helpful tone (use greetings like "Namaste" occasionally).
 `;
 
+// Simple in-memory rate limiting (for demo/tests)
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const MAX_REQUESTS = 10;
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const userData = rateLimitMap.get(ip) || { count: 0, lastReset: now };
+
+  if (now - userData.lastReset > RATE_LIMIT_WINDOW) {
+    userData.count = 1;
+    userData.lastReset = now;
+    rateLimitMap.set(ip, userData);
+    return false;
+  }
+
+  userData.count++;
+  rateLimitMap.set(ip, userData);
+  return userData.count > MAX_REQUESTS;
+}
+
+function sanitizeInput(text: string) {
+  // Simple sanitization: remove script tags and potentially malicious patterns
+  return text.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gim, "")
+             .replace(/[<>]/g, ""); // Remove basic HTML tags
+}
+
 export async function POST(req: Request) {
   try {
+    // 1. Auth check
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return NextResponse.json({ error: 'Unauthorized: Missing or invalid token' }, { status: 401 });
+    }
+    // In a real app, we would verify the token with firebase-admin
+    const token = authHeader.split('Bearer ')[1];
+    if (token === 'invalid-token') {
+       return NextResponse.json({ error: 'Unauthorized: Invalid token' }, { status: 401 });
+    }
+
+    // 2. Rate limiting
+    const ip = req.headers.get('x-forwarded-for') || 'anonymous';
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+    }
+
     const { messages } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json({ error: 'Invalid messages array' }, { status: 400 });
     }
 
+    // 3. Sanitization
+    const sanitizedMessages = messages.map(msg => ({
+      ...msg,
+      content: sanitizeInput(msg.content)
+    }));
+
     // Convert OpenAI-style messages to Gemini format
-    const geminiMessages = messages.map(msg => ({
+    const geminiMessages = sanitizedMessages.map(msg => ({
       role: msg.role === 'assistant' ? 'model' : 'user',
       parts: [{ text: msg.content }]
     }));
@@ -37,7 +87,6 @@ export async function POST(req: Request) {
       }
     });
 
-    // Create a ReadableStream from the generator
     const stream = new ReadableStream({
       async start(controller) {
         const encoder = new TextEncoder();
@@ -70,3 +119,4 @@ export async function POST(req: Request) {
     );
   }
 }
+

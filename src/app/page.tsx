@@ -2,46 +2,11 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { states } from "@/data/states";
-import { quickStats, ls2024Results, getNextElection } from "@/data/elections";
+import { quickStats, ls2024Results } from "@/data/elections";
+import { getNextElection } from "@/lib/utils";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { StatCounter } from "@/components/home/StatCounter";
 
-// ============================================================
-// Animated stat counter
-// ============================================================
-function StatCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const counted = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !counted.current) {
-          counted.current = true;
-          const step = Math.max(1, Math.floor(target / 40));
-          let current = 0;
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            setCount(current);
-          }, 25);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return (
-    <span ref={ref} className="text-2xl sm:text-3xl font-extrabold gradient-text tabular-nums">
-      {count.toLocaleString()}{suffix}
-    </span>
-  );
-}
 
 // ============================================================
 // Countdown Timer
